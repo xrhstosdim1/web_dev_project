@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../images/logo_vertical_cut.png" alt="Logo" width="20%" height="20%" class="d-inline-block align-text-center">
+                <img src="../images/logo_vertical_cut_black.png" alt="Logo" width="20%" height="20%" class="d-inline-block align-text-center">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,13 +28,13 @@
                 <ul class="navbar-nav me-auto">
                     <!-- an xreiastoun menou koumpua edw -->
                 </ul>
-                <div class="switch">
-                <input type="checkbox" class="checkbox" id="checkbox">
-                <label for="checkbox" class="checkbox-label">
-                 <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <span class="ball"></span>
-                </label>
+                <div class="switch d-flex align-items-center">
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">
+                        <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="ball"></span>
+                    </label>
                 </div>
                 <button class="btn btn-success d-flex align-items-center" onclick="window.location.href='../log-in-system/login.html'">
                     <i class="fas fa-sign-in-alt me-2"></i> Σύνδεση

@@ -38,10 +38,3 @@ h2 {
 .text-secondary {
     font-size: 0.9rem;
 }
-.switch{
-    position: relative;
-    display: inline-block;
-    margin-right: 4%;
-    margin-top: 0.5%;
-
-}
