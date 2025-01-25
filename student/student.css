@@ -1,0 +1,263 @@
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+#professors-suggestions {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#professors-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#professors-suggestions li:hover {
+    background-color: #f8f9fa;
+}
+
+
+
+
+
+
+
+
+
+
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-weight: 700;
+    color: #007bff;
+}
+
+.bg-light {
+    background-color: #f9f9f9 !important;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.badge {
+    font-size: 1rem;
+    padding: 0.5em 0.8em;
+    border-radius: 10px;
+}
+
+.table th {
+    font-weight: 600;
+    color: #333333;
+}
+
+.table td {
+    font-size: 1rem;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.text-secondary {
+    color: #6c757d !important;
+}
+
+.text-muted {
+    color: #adb5bd !important;
+}
+
+.text-dark {
+    color: #343a40 !important;
+}
+
+
+.progress-bar {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 30px;
+    transition: width 0.6s ease;
+    text-align: center;
+}
+
+.progress-bar {
+    background-color: #6c757d; /* Default */
+}
+
+.progress-bar[style*="16%"] {
+    background-color: #6c757d; /* Γκρι */
+}
+
+.progress-bar[style*="33%"] {
+    background-color: #ffc107; /* Κίτρινο */
+}
+
+.progress-bar[style*="50%"] {
+    background-color: #0d6efd; /* Μπλε */
+}
+
+.progress-bar[style*="66%"] {
+    background-color: #20c997; /* Πράσινο */
+}
+
+.progress-bar[style*="83%"] {
+    background-color: #17a2b8; /* Κυανό */
+}
+
+.progress-bar[style*="100%"] {
+    background-color: #28a745; /* Σκούρο Πράσινο */
+}
+
+
+
+
+
+
+
+
+
+
+.modal-content {
+    border-radius: 5px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+}
+
+.modal-body {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+.modal-footer {
+    background-color: #f1f1f1;
+    border-top: none;
+    padding: 1rem;
+}
+
+.modal-footer .btn {
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+.modal-footer .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.modal-footer .btn-primary i,
+.modal-footer .btn-secondary i {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+
+
+
+
+
+
+.card {
+    border-radius: 10px;
+    background-color: #fffbea; /* Απαλό κίτρινο για "warning" */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #856404; /* Χρώμα warning */
+}
+
+.list-group-item {
+    border: none;
+    background-color: transparent;
+}
+
+.list-group-item strong {
+    color: #856404;
+}
+
+#evaluation-report-link.btn-secondary {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    pointer-events: none;
+}
+
+
+
+.steps-container {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step {
+    border-left: 4px solid #ffc107;
+    padding-left: 15px;
+}
+
+.step h5 {
+    color: #343a40;
+}
+
+.step p {
+    font-size: 0.9rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+.btn {
+    border-radius: 5px;
+}
+

@@ -1,0 +1,91 @@
+/* Notification Container */
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
+    z-index: 1000;
+}
+
+/* Notification Box */
+.notification {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards, fadeOut 0.5s 4.5s forwards;
+}
+
+/* Error Notification */
+.notification.error {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+/* Success Notification */
+.notification.success {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+/* Info Notification */
+.notification.info {
+    background-color: #2196f3; /* Blue */
+    color: white;
+}
+
+/* Icon Styles */
+.notification i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.notification span.message {
+    flex: 1;
+}
+
+/* Central Notification */
+.central-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    z-index: 2000;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
