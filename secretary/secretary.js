@@ -853,6 +853,7 @@ function translateStatus(status) {
         diathesimi: 'Διαθέσιμη',
         exetasi: 'Εξέταση',
         vathmologisi: 'Βαθμολόγηση',
+        pros_anathesi: 'Προς ανάθεση',
         all: 'Όλες'
     };
     return statusMapping[status] || 'Άγνωστο translateStatus';
