@@ -7,15 +7,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
-$email = $_SESSION['email'];
 $name = $_SESSION['name'];
 $surname = $_SESSION['surname'];
 
-if ($email && $name && $surname) {
+if ($name && $surname) {
     echo json_encode([
         'success' => true,
         'data' => [
-            'email' => $email,
             'name' => $name,
             'surname' => $surname
         ]
