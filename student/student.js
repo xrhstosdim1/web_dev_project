@@ -890,10 +890,14 @@ function fetchAndDisplayThesisStatus() {
 										document.getElementById("thesis-title").innerText = details.topic || "N/A";
 										document.getElementById("thesis-summary").innerText = details.summary || "N/A";
 										document.getElementById("thesis-supervisor").innerText = details.supervisor || "N/A";
+										
+										document.getElementById("topic-file-link").setAttribute("href", `../uploads/${thesis.proff_file || "-"}`);
+										document.getElementById("topic-file-link").setAttribute("target", "_blank");
 
-										document.getElementById("topic-file-link").setAttribute("href", `../uploads/${details.file_name || ""}`);
-										document.getElementById("student-file-link").setAttribute("href", `../uploads/${details.student_file || ""}`);
-										document.getElementById("exam-report-link").setAttribute("href", `../exam_reports/${id_dipl}.pdf`);
+										document.getElementById("student-file-link").setAttribute("href", `../uploads/${thesis.student_file || "-"}`);
+										document.getElementById("student-file-link").setAttribute("target", "_blank");
+										//document.getElementById("exam-report-link").setAttribute("href", `../exam_reports/${id_dipl}.pdf`); an apothikeuetai kathe pdf 
+
 
 										document.getElementById("pros_anathesi_date").innerText = details.selection_date || "-";
 										document.getElementById("pros_egkrisi_date").innerText = details.thesis_requested || "-";
@@ -1247,13 +1251,22 @@ function saveNemertesLink(id) {
 }
 //vreate to pdf. exei html pou gemizei fields praktika
 function generatePDFContent(details) {
-    const examDateTime = details.exam_date || "-"; //split hmeromhnia me wra
-    let examDate = "-";
-    let examTime = "-";
-
-    if (examDateTime.includes(" ")) {
-        [examDate, examTime] = examDateTime.split(" ");
-    }
+	const examDateTime = details.exam_date || "-";
+	let examDate = "-";
+	let examTime = "-";
+	
+	if (examDateTime.includes(" ")) {
+		[examDate, examTime] = examDateTime.split(" ");
+		//hmeromhnia se morfh dd/mm/yyyy
+		if (examDate.includes("-")) {
+			const [year, month, day] = examDate.split("-");
+			examDate = `${day}/${month}/${year}`;
+		}
+		//ksilwma ta seconds
+		if (examTime.includes(":")) {
+			examTime = examTime.slice(0, 5);
+		}
+	}
 
     return `
         <div style="font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.4; padding: 20px; color: #333;">
