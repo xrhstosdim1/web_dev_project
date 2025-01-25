@@ -1,4 +1,6 @@
-.section {
+.custom-navbar {
+    background-color: #8da8c7;
+}.section {
     display: none;
 }
 .section.active {
@@ -150,7 +152,6 @@
 }
 
 .modal-body {
-    background-color: #f9f9f9;
     padding: 1.5rem;
     font-size: 1rem;
 }
@@ -229,7 +230,6 @@
 
 .steps-container {
     padding: 10px 15px;
-    background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -240,7 +240,6 @@
 }
 
 .step h5 {
-    color: #343a40;
 }
 
 .step p {

@@ -3,7 +3,7 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="el" data-bs-theme="" id="htmlPage">
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -13,10 +13,12 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
 	<link rel='stylesheet' type='text/css' href='student.css'>
 	<link rel="stylesheet" type="text/css" href="../globally_accessed/notifications/notifications.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="../globally_accessed/dark-mode/switch-style.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,6 +40,14 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
         </li>
       </ul>
       <div class="d-flex align-items-center">
+              <div class="switch d-flex align-items-center">
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">
+                        <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="ball"></span>
+                    </label>
+                  </div>
                 <span id="user-name" class="me-3"></span>
                 <button class="btn btn-outline-dark d-flex align-items-center" onclick="window.location.href='../log-in-system/logout.php'">
                     <i class="fas fa-sign-out-alt me-2"></i> Αποσύνδεση
@@ -105,11 +115,11 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
         <div class="modal-body px-4 py-3">
           <div class="row mb-3">
             <div class="col-3 text-secondary fw-bold">Τίτλος:</div>
-            <div class="col-9 text-dark fw-bold" id="thesis-title">N/A</div>
+            <div class="col-9 text fw-bold" id="thesis-title">N/A</div>
           </div>
           <div class="row mb-3">
             <div class="col-3 text-secondary fw-bold">Περιγραφή:</div>
-            <div class="col-9 text-dark" id="thesis-description">N/A</div>
+            <div class="col-9 text" id="thesis-description">N/A</div>
           </div>
           <div class="row">
             <div class="col-3 text-secondary fw-bold">Συνημμένο Αρχείο:</div>
@@ -268,7 +278,7 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
 
 
 
-
+<script src="../globally_accessed/dark-mode/switch_script.js"></script>
 <script src="student.js" defer></script>
 <script src="../globally_accessed/notifications/notifications.js" defer></script>
 <script src="../globally_accessed/show_name_on_navbar.js" defer></script>

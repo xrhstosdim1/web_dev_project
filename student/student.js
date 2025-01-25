@@ -616,7 +616,7 @@ function fetchAndDisplayThesisStatus() {
                                         <div class="row g-4">
                                             <!-- Αναζήτηση Καθηγητή -->
                                             <div class="col-12 mb-4">
-                                                <div class="card bg-light shadow-sm">
+                                                <div class="card  shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">Αναζήτηση Καθηγητή</h5>
                                                         <div class="input-group">
@@ -632,7 +632,7 @@ function fetchAndDisplayThesisStatus() {
 
                                             <!-- Πίνακας Προσκλήσεων -->
                                             <div class="col-12">
-                                                <div class="card bg-light shadow-sm">
+                                                <div class="card shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">Προσκλήσεις που έχουν σταλεί</h5>
                                                         <div class="table-responsive">
@@ -779,7 +779,7 @@ function fetchAndDisplayThesisStatus() {
                                         <div class="row g-4">
                                             <!-- Βήμα 1: Προβολή Πρακτικού -->
                                             <div class="col-md-12">
-                                                <div class="card bg-light shadow-sm">
+                                                <div class="card  shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">1. Δείτε το πρακτικό βαθμολόγησης</h5>
                                                         <p class="card-text text-muted">
@@ -794,7 +794,7 @@ function fetchAndDisplayThesisStatus() {
                         
                                             <!-- Βήμα 2: Καταχώρηση Συνδέσμου -->
                                             <div class="col-md-12">
-                                                <div class="card bg-light shadow-sm">
+                                                <div class="card  shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">2. Καταχώρηση συνδέσμου αποθετηρίου</h5>
                                                         <p class="card-text text-muted">
@@ -831,7 +831,7 @@ function fetchAndDisplayThesisStatus() {
 										<div class="row g-4">
 											<div class="col-md-6">
 												<div class="card border-light shadow-sm h-100">
-													<div class="card-header bg-light fw-bold">Πληροφορίες Διπλωματικής</div>
+													<div class="card-header  fw-bold">Πληροφορίες Διπλωματικής</div>
 													<div class="card-body">
 														<ul class="list-group">
 															<li class="list-group-item">
@@ -849,7 +849,7 @@ function fetchAndDisplayThesisStatus() {
 											</div>
 											<div class="col-md-6">
 												<div class="card border-light shadow-sm h-100">
-													<div class="card-header bg-light fw-bold">Αρχεία</div>
+													<div class="card-header  fw-bold">Αρχεία</div>
 													<div class="card-body">
 														<div class="list-group">
 															<a href="#" id="topic-file-link" class="list-group-item list-group-item-action text-primary">
@@ -868,7 +868,7 @@ function fetchAndDisplayThesisStatus() {
 										</div>
 										<div class="mt-5">
 											<div class="card border-light shadow-sm">
-												<div class="card-header bg-light fw-bold">Ιστορικό Κατάστασης</div>
+												<div class="card-header  fw-bold">Ιστορικό Κατάστασης</div>
 												<div class="card-body">
 													<div id="status-history" class="list-group">
 														<div class="list-group-item">Προς Ανάθεση: <span id="pros_anathesi_date">-</span></div>
