@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="el" data-bs-theme="" id="htmlPage">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
     <link rel="stylesheet" href="guest.css">
+    <link href="../globally_accessed/dark-mode/switch-style.css" rel="stylesheet">
 </head>
 
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../images/logo_vertical_cut.png" alt="Logo" width="20%" height="20%" class="d-inline-block align-text-center">
@@ -25,6 +28,14 @@
                 <ul class="navbar-nav me-auto">
                     <!-- an xreiastoun menou koumpua edw -->
                 </ul>
+                <div class="switch">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                 <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+                </label>
+                </div>
                 <button class="btn btn-success d-flex align-items-center" onclick="window.location.href='../log-in-system/login.html'">
                     <i class="fas fa-sign-in-alt me-2"></i> Σύνδεση
                 </button>
@@ -118,10 +129,11 @@
     </div>
 
     <div class="notification-container" id="notification-container"></div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../globally_accessed/notifications/notifications.js"></script>
     <script src="guest.js"></script>
+    <script src="../globally_accessed/dark-mode/switch_script.js"></script>
     <?php include "../globally_accessed/footer.html"; ?>
     
 </body>

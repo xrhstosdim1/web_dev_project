@@ -3,24 +3,23 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+   
 }
 .login-container {
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background: white;
+
 }
 .login-title {
     font-weight: bold;
     margin-bottom: 20px;
-    color: #4a4a4a;
     text-align: center;
 }
 .login-logo {
-    max-width: 150px;
-    margin-bottom: 20px;
+    max-width: 250px;
+    margin-bottom: 5px;
 }
 .btn-primary {
     background-color: #007bff;
@@ -70,4 +69,12 @@ body {
 .input-group .btn-outline-secondary:hover i {
     color: #495057;
     transform: scale(1.1);
+}
+
+.switch {
+    position: absolute;
+    top: 2%; /* Αντί για 20px */
+    right: 2%; /* Αντί για 20px */
+    align-items: center;
+    margin-bottom: 2%;
 }

@@ -1,5 +1,8 @@
-body {
-    background-color: #f8f9fa;
+.custom-navbar {
+    background-color: #8da8c7;
+}
+.custom-navbar .navbar-brand {
+    color: #fff;
 }
 
 h2 {
@@ -34,4 +37,11 @@ h2 {
 
 .text-secondary {
     font-size: 0.9rem;
+}
+.switch{
+    position: relative;
+    display: inline-block;
+    margin-right: 4%;
+    margin-top: 0.5%;
+
 }

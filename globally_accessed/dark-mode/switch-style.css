@@ -1,0 +1,45 @@
+.switch {
+    position: absolute;
+    top: 2%; /* Αντί για 20px */
+    right: 2%; /* Αντί για 20px */
+    align-items: center;
+    margin-bottom: 2%;
+}
+.checkbox{
+    position: relative;
+    display: inline-block;
+    width: 15%; /* Αντί για 60px */
+    height: 10%;
+}
+.checkbox-label{
+   background-color: #111;
+   width:50px;
+   height: 26px;
+   border-radius: 50px;
+   position: relative;
+   padding : 5px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+.fa-moon{
+    color: #f1c40f;
+}
+.fa-sun{
+    color: #f39c12;
+}
+.checkbox-label .ball{
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s ease;
+}
+.checkbox:checked + .checkbox-label .ball{
+    transform: translateX(24px);
+}
+#checkbox {display:none}
