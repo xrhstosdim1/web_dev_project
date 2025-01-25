@@ -10,7 +10,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="icon" type="image/x-icon" href="../images/logo_symbol.png">
 		<link rel="stylesheet" href="secretary.css">
-		<link rel="stylesheet" href="../notifications/notifications.css">
+		<link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
 		<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -646,7 +646,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="secretary.js" defer></script>
 	<script src="../globally_accessed/show_name_on_navbar.js" defer></script>
-	<script src="../notifications/notifications.js" defer></script>
+	<script src="../globally_accessed/notifications/notifications.js" defer></script>
 		
 	</body>
 </html>

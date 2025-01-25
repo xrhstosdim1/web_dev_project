@@ -11,7 +11,7 @@ include "../log-in-system/user_auth.php";
 		<link rel="icon" type="image/x-icon" href="../images/logo_symbol.png">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="professor.css">
-		<link rel="stylesheet" href="../notifications/notifications.css">
+		<link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 	</head>
@@ -586,6 +586,6 @@ include "../log-in-system/user_auth.php";
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="professor.js" defer></script>
 		<script src="../globally_accessed/show_name_on_navbar.js" defer></script>
-		<script src="../notifications/notifications.js" defer></script>
+		<script src="../globally_accessed/notifications/notifications.js" defer></script>
 	</body>
 </html>

@@ -11,7 +11,7 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="../images/logo_symbol.png">
 	<link rel='stylesheet' type='text/css' href='student.css'>
-	<link rel="stylesheet" type="text/css" href="../notifications/notifications.css">
+	<link rel="stylesheet" type="text/css" href="../globally_accessed/notifications/notifications.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
@@ -270,7 +270,7 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
 
 
 <script src="student.js" defer></script>
-<script src="../notifications/notifications.js" defer></script>
+<script src="../globally_accessed/notifications/notifications.js" defer></script>
 <script src="../globally_accessed/show_name_on_navbar.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 

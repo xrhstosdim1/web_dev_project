@@ -8,12 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../notifications/notifications.css">
+    <link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
     <link rel="stylesheet" href="guest.css">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -24,7 +23,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <!-- Additional navigation items -->
+                    <!-- an xreiastoun menou koumpua edw -->
                 </ul>
                 <button class="btn btn-success d-flex align-items-center" onclick="window.location.href='../log-in-system/login.html'">
                     <i class="fas fa-sign-in-alt me-2"></i> Σύνδεση
@@ -33,10 +32,8 @@
         </div>
     </nav>
 
-    <!-- Content -->
     <div class="container my-5">
         <div class="row g-4">
-            <!-- Ανακοινώσεις Εξέτασης -->
             <div class="col-md-6 mx-auto">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
@@ -44,7 +41,6 @@
                         <p class="text-center text-secondary mb-4">
                             Παρακάτω εμφανίζονται οι ανακοινώσεις για την εξέταση διπλωματικών
                         </p>
-                        <!-- Περίοδος Ημερομηνιών -->
                         <div class="row g-3 align-items-center mb-4">
                             <div class="col-md-6">
                                 <label for="start-date" class="form-label">Από Ημερομηνία</label>
@@ -55,7 +51,6 @@
                                 <input type="date" id="end-date" class="form-control">
                             </div>
                         </div>
-                        <!-- Πίνακας Ανακοινώσεων -->
                         <div class="table-responsive">
                             <table class="table table-hover align-middle">
                                 <thead class="table-warning">
@@ -74,13 +69,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- Φόρτωση -->
                         <div id="loading-announcements" class="text-center my-3" style="display: none;">
                             <div class="spinner-border text-warning" role="status">
                                 <span class="visually-hidden">Φόρτωση...</span>
                             </div>
                         </div>
-                        <!-- Κουμπιά Εξαγωγής -->
                         <div class="d-flex justify-content-center mb-4">
                             <div class="btn-group" role="group">
                                 <button id="export-json" class="btn btn-warning">Εξαγωγή σε JSON</button>
@@ -91,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- Ολοκληρωμένες Διπλωματικές -->
             <div class="col-md-6">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
@@ -128,7 +120,7 @@
     <div class="notification-container" id="notification-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../notifications/notifications.js"></script>
+    <script src="../globally_accessed/notifications/notifications.js"></script>
     <script src="guest.js"></script>
     <?php include "../globally_accessed/footer.html"; ?>
     
