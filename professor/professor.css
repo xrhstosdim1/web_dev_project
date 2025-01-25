@@ -1,4 +1,7 @@
 /* General Styles */
+.custom-navbar {
+    background-color: #8da8c7;
+}
 .section-container {
     margin-top: 20px;
     opacity: 0;
@@ -134,7 +137,7 @@ label {
 /* Section Styling */
 .sector {
     padding: 1rem 1.5rem;
-    background-color: #f9f9f9;
+   
     border-radius: 10px;
     margin-bottom: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -297,7 +300,7 @@ label {
     left: 50%;
     width: 100%;
     height: 5px;
-    background-color: #e0e0e0;
+    background-color: transparent; /*PROBLEMATIC, evgaze ena grizaki san grammi, fixed */
     z-index: -1;
     transform: translateX(-50%);
 }

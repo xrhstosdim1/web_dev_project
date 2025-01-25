@@ -2,7 +2,7 @@
 include "../log-in-system/user_auth.php";
 ?>
 <!DOCTYPE html>
-<html lang="el">
+<html lang="el" data-bs-theme="" id="htmlPage">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +13,12 @@ include "../log-in-system/user_auth.php";
 		<link rel="stylesheet" href="professor.css">
 		<link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+		<link href="../globally_accessed/dark-mode/switch-style.css" rel="stylesheet">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
 			<div class="container-fluid">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -47,6 +49,14 @@ include "../log-in-system/user_auth.php";
 					</ul>
 					<div class="d-flex align-items-center">
 						<span id="user-name" class="me-3"></span>
+					<div class="switch d-flex align-items-center">
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">
+                        <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="ball"></span>
+                    </label>
+               		 </div>
 						<button class="btn btn-outline-dark d-flex align-items-center" onclick="window.location.href='../log-in-system/logout.php'">
 							<i class="fas fa-sign-out-alt me-2"></i> Αποσύνδεση </button>
 					</div>
@@ -87,7 +97,7 @@ include "../log-in-system/user_auth.php";
 					<h2 class="mb-4 text-primary text-center">Επεξεργασία Θεμάτων</h2>
 					<div class="table-responsive">
 						<table class="table table-hover text-center align-middle">
-							<thead class="table-light">
+							<thead class="table">
 								<tr>
 									<th>ID</th>
 									<th>Θέμα</th>
@@ -152,7 +162,7 @@ include "../log-in-system/user_auth.php";
 								</div>
 							</form>
 						</div>
-						<div class="modal-footer bg-light">
+						<div class="modal-footer ">
 							<div class="d-flex w-100">
 								<button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal"> Άκυρο </button>
 								<button type="button" class="btn btn-primary" onclick="saveThesisEdits()">Αποθήκευση</button>
@@ -165,7 +175,7 @@ include "../log-in-system/user_auth.php";
 			<div id="my-theses" class="section-container" style="display: none;">
 				<h2 class="mb-4 text-primary text-center">Οι διπλωματικές μου</h2>
 				<!-- filtra -->
-				<div class="d-flex justify-content-between align-items-center mb-4 bg-light p-3 rounded">
+				<div class="d-flex justify-content-between align-items-center mb-4  p-3 rounded">
 					<div class="d-flex flex-wrap align-items-center gap-3" id="filters-container">
 						<!-- status filtering -->
 						<div>
@@ -211,7 +221,7 @@ include "../log-in-system/user_auth.php";
 					<div class="card-body p-4">
 						<div class="table-responsive">
 							<table class="table table-hover text-center align-middle">
-								<thead class="table-light">
+								<thead class="table">
 									<tr>
 										<th>ID</th>
 										<th>Θέμα</th>
@@ -293,7 +303,7 @@ include "../log-in-system/user_auth.php";
 								</div>
 							</div>
 							<!-- info box -->
-							<div class="col-12 bg-white shadow-sm p-3">
+							<div class="col-12  shadow-sm p-3">
 								<div class="d-flex align-items-center">
 									<i class="bi bi-info-circle text-primary me-2"></i>
 									<small>
@@ -416,48 +426,48 @@ include "../log-in-system/user_auth.php";
 										<tr>
 											<td class="fw-bold" id="vathmologio-epivlepon-onoma">Επιβλέπων</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="epivlepon-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="epivlepon-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="epivlepon-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="epivlepon-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="epivlepon-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="epivlepon-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="epivlepon-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="epivlepon-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td class="fw-bold text-muted" id="epivlepon-total">N/A</td>
 										</tr>
 										<tr>
 											<td class="fw-bold" id="vathmologio-member2-onoma">Σύμβουλος 1</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member2-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member2-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member2-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member2-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member2-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member2-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member2-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member2-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td class="fw-bold text-muted" id="member2-total">N/A</td>
 										</tr>
 										<tr>
 											<td class="fw-bold" id="vathmologio-member3-onoma">Σύμβουλος 2</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member3-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member3-crit1" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member3-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member3-crit2" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member3-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm " id="member3-crit3" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td>
-												<input type="number" class="form-control form-control-sm bg-light" id="member3-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
+												<input type="number" class="form-control form-control-sm" id="member3-crit4" min="0" max="10" step="0.5" onblur="validateRange(this);" disabled>
 											</td>
 											<td class="fw-bold text-muted" id="member3-total">N/A</td>
 										</tr>
@@ -509,7 +519,7 @@ include "../log-in-system/user_auth.php";
 					<div class="card-body p-4">
 						<div class="table-responsive">
 							<table class="table table-bordered table-hover text-center">
-								<thead class="table-light">
+								<thead class="table">
 									<tr>
 										<th>Φοιτητής</th>
 										<th>Επιβλέπων Καθηγητής</th>
@@ -583,9 +593,12 @@ include "../log-in-system/user_auth.php";
 		</div> <?php include "../globally_accessed/footer.html"; ?>
 
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="../globally_accessed/dark-mode/switch_script.js"></script>
 		<script src="professor.js" defer></script>
 		<script src="../globally_accessed/show_name_on_navbar.js" defer></script>
 		<script src="../globally_accessed/notifications/notifications.js" defer></script>
+		
 	</body>
 </html>

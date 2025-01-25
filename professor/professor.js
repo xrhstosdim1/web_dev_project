@@ -609,7 +609,7 @@ function openThesisModal(thesisId) {
 							`<small class="text-muted">Απαντήθηκε: -</small>`;
 
 						const requestCard = document.createElement('div');
-						requestCard.className = 'request-item mb-3 p-2 border rounded bg-light';
+						requestCard.className = 'request-item mb-3 p-2 border rounded';
 						requestCard.innerHTML = `
                             <div>
                                 <strong>${request.date_requested}</strong>
@@ -632,7 +632,7 @@ function openThesisModal(thesisId) {
 				if (commentsData.success && commentsData.requests.length > 0) {
 					commentsData.requests.forEach((comment) => {
 						const commentCard = document.createElement('div');
-						commentCard.className = 'comment-item mb-3 p-2 border rounded bg-light';
+						commentCard.className = 'comment-item mb-3 p-2 border rounded';
 						commentCard.innerHTML = `
                             <div class="d-flex justify-content-between">
                                 <strong>${comment.date_commented}</strong>
