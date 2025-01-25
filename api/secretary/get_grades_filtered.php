@@ -50,7 +50,8 @@ try {
             gramateia g ON v.id_diplwmatikis = g.id_diplwmatikis AND g.aithsh_gia = 'pros_egrisi_oloklirwmenh'
         LEFT JOIN 
             diplwmatiki_foitita df ON v.id_diplwmatikis = df.id_diplwmatikis
-        WHERE 1 ";
+        WHERE 
+            v.status != 'anamoni'";
 
     if ($idDiplwmatikis) {
         $sql .= " AND v.id_diplwmatikis = ?";
