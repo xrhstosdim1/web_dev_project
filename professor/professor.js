@@ -605,8 +605,8 @@ function openThesisModal(thesisId) {
 					requestsData.requests.forEach((request) => {
 						const statusBadge = getRequestStatusBadge(request.status);
 						const dateAnswered = request.date_answered ?
-							`<small class="text-muted">Απαντήθηκε: ${request.date_answered}</small>` :
-							`<small class="text-muted">Απαντήθηκε: -</small>`;
+							`<small class="text">Απαντήθηκε: ${request.date_answered}</small>` :
+							`<small class="text">Απαντήθηκε: -</small>`;
 
 						const requestCard = document.createElement('div');
 						requestCard.className = 'request-item mb-3 p-2 border rounded';
@@ -636,14 +636,14 @@ function openThesisModal(thesisId) {
 						commentCard.innerHTML = `
                             <div class="d-flex justify-content-between">
                                 <strong>${comment.date_commented}</strong>
-                                <span class="text-muted">${comment.prof_email || ''}</span>
+                                <span class="text">${comment.prof_email || ''}</span>
                             </div>
                             <p class="mb-0">${comment.comment}</p>
                         `;
 						commentsList.appendChild(commentCard);
 					});
 				} else {
-					commentsList.innerHTML = '<p class="text-muted">Δεν υπάρχουν σχόλια.</p>';
+					commentsList.innerHTML = '<p class="text">Δεν υπάρχουν σχόλια.</p>';
 				}
 
 				document.getElementById('comment-diplomatikis-id').value = thesisId;

@@ -58,7 +58,7 @@ label {
 
 /* Backgrounds */
 .bg-light {
-    background-color: #f8f9fa !important;
+   
     border-radius: 8px;
 }
 
@@ -158,7 +158,6 @@ label {
     padding: 0.6rem;
     border-radius: 0.4rem;
     margin-bottom: 0.5rem;
-    background-color: #ffffff;
     word-wrap: break-word;
     white-space: normal;
     overflow-wrap: break-word;
