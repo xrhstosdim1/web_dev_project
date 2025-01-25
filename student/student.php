@@ -160,7 +160,7 @@ include('../log-in-system/user_auth.php'); // Check if user is logged in and if 
         </p>
         <p>
           <strong>Συνημμένο Αρχείο:</strong>
-          <a id="thesis-file-link" href="#" target="_blank" style="display: none;">Λήψη αρχείου</a>
+          <span id="my-thesis-file-link">Δεν υπάρχει διαθέσιμο αρχείο από τον καθηγητή.</span>
         </p>
       </div>
     </div>

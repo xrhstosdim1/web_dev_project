@@ -377,21 +377,18 @@ function fetchThesisData() {
 				document.getElementById('thesis-topic').textContent = thesis.topic || 'Δεν υπάρχει θέμα';
 				document.getElementById('thesis-summary').textContent = thesis.summary || 'Δεν υπάρχει περιγραφή';
 
-				const fileLink = document.getElementById('thesis-file-link');
-				if (thesis.file) {
-					fileLink.href = thesis.file;
-					fileLink.textContent = 'Λήψη αρχείου';
-					fileLink.style.display = 'inline';
-				} else {
-					fileLink.href = '#';
-					fileLink.style.display = 'none';
-				}
+				console.log(thesis.proff_file);
+
+				const fileLink = document.getElementById('my-thesis-file-link');
+				fileLink.innerHTML = thesis.proff_file ?
+					`<a href="../uploads/${thesis.proff_file}" target="_blank" class="text-decoration-none text-primary">${thesis.proff_file}</a>` :
+					'Δεν έχει αναρτηθεί αρχείο από τον καθηγητή.';
 
 				document.getElementById('supervisor-member').textContent = thesis.supervisor || 'Δεν έχει οριστεί';
 				document.getElementById('committee-member1').textContent = thesis.member1 || 'Δεν έχει οριστεί';
 				document.getElementById('committee-member2').textContent = thesis.member2 || 'Δεν έχει οριστεί';
 
-				if (thesis.start_date && thesis.start_date !== 'προς εγκριση') {
+				if (thesis.start_date) {
 					const startDate = new Date(thesis.start_date.replace(' ', 'T'));
 					startAutoUpdatingCounter(startDate);
 				} else {
