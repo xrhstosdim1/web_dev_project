@@ -388,13 +388,16 @@ function fetchThesisData() {
 				document.getElementById('committee-member1').textContent = thesis.member1 || 'Δεν έχει οριστεί';
 				document.getElementById('committee-member2').textContent = thesis.member2 || 'Δεν έχει οριστεί';
 
-				if (thesis.start_date) {
-					const startDate = new Date(thesis.start_date.replace(' ', 'T'));
-					startAutoUpdatingCounter(startDate);
+				if(thesis.status != 'oloklirwmeni') {
+					if (thesis.start_date) {
+						const startDate = new Date(thesis.start_date.replace(' ', 'T'));
+						startAutoUpdatingCounter(startDate);
+					} else {
+						timeSinceAssignment.textContent = 'Η ανάθεση δεν έχει εγκριθεί.';
+					}
 				} else {
-					timeSinceAssignment.textContent = 'Η ανάθεση δεν έχει εγκριθεί.';
+					timeSinceAssignment.textContent = '-';
 				}
-
 				thesisInfo.style.display = 'block';
 				noThesisMessage.style.display = 'none';
 			} else {
@@ -814,7 +817,7 @@ function fetchAndDisplayThesisStatus() {
                                 </div>
                             `;
 						break;
-						case 'oloklirwmeni':
+					case 'oloklirwmeni':
 							contentContainer.innerHTML = `
 								<div class="card shadow-sm border-0 p-4">
 									<div class="card-body">
