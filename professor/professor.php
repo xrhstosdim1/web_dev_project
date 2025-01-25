@@ -362,6 +362,10 @@ include "../log-in-system/user_auth.php";
 											<th class="text-nowrap">Αίθουσα ή σύνδεσμος:</th>
 											<td id="exam-room" class="text-muted">N/A</td>
 										</tr>
+										<tr>
+											<th class="text-nowrap">Κείμενο ανακοίνωσης:</th>
+											<td id="ann_body_" class="text-muted">N/A</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>

@@ -487,7 +487,6 @@ function openThesisModal(thesisId) {
 							'Το θέμα σας είναι διαθέσιμο για επιλογή από φοιτητή.' :
 							'Το θέμα σας είναι διαθέσιμο για επιλογή από φοιτητή, όμως δεν θα έπρεπε να βλέπετε αυτή τη σελίδα. Επικοινωνήστε με τον διαχειριστή.';
 						break;
-
 					case 'pros_anathesi':
 						const stepsAnathesi = document.querySelectorAll('.progress-timeline .step');
 						resetProgressModal();
@@ -499,14 +498,12 @@ function openThesisModal(thesisId) {
 							document.getElementById('status-info').innerText = 'Το θέμα έχει επιλεχθεί από τον φοιτητή.';
 						}
 						break;
-
 					case 'pros_egrisi':
 						const stepsEgrisi = document.querySelectorAll('.progress-timeline .step');
 						resetProgressModal();
 						updateSteps(stepsEgrisi, 2, 2);
 						document.getElementById('status-info').innerText = 'Αναμένεται απόφαση από τη Γενική Συνέλευση του Τμήματος.';
 						break;
-
 					case 'energi':
 						const stepsEnergi = document.querySelectorAll('.progress-timeline .step');
 						resetProgressModal();
@@ -542,7 +539,6 @@ function openThesisModal(thesisId) {
 							document.getElementById('status-info').innerText = 'Ο φοιτητής εκπονεί την εργασία του.';
 						}
 						break;
-
 					case 'exetasi':
 						const stepsExetasi = document.querySelectorAll('.progress-timeline .step');
 						resetProgressModal();
@@ -747,6 +743,16 @@ function fetchAndDisplayExamDetails(thesisId) {
                     examRoomCell.textContent = "N/A";
                     allFieldsFilled = false;
                 }
+
+
+                const examBody = document.getElementById("ann_body_");
+                if (data.announcements.length > 0 && data.announcements[0].ann_body) {
+                    examBody.textContent = data.announcements[0].ann_body;
+                } else {
+                    examBody.textContent = "Δεν έχετε ανακοινώσει την εξέταση.";
+                }
+
+               
 
                 if (allFieldsFilled) {
                     announceExamMainBtn.disabled = false;
@@ -1115,8 +1121,6 @@ function setupAnnouncementForm(thesisId) {
 
                     if (data.success) {
                         showNotification('Η ανακοίνωση εξέτασης δημοσιεύθηκε επιτυχώς.', 'success');
-                        announcementForm.reset();
-                        const modal = bootstrap.Modal.getInstance(document.getElementById('examAnnouncementModal'));
                         loadMyTheses();
                     } else {
                         showNotification(data.message, 'error');
