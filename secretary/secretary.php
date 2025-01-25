@@ -2,7 +2,7 @@
 include "../log-in-system/user_auth.php";// Check if user is logged in and if the role matches
 ?>
 	<!DOCTYPE html>
-<html lang="el">
+<html lang="el" data-bs-theme="" id="htmlPage">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +13,14 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 		<link rel="stylesheet" href="../globally_accessed/notifications/notifications.css">
 		<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+		<link href="../globally_accessed/dark-mode/switch-style.css" rel="stylesheet">
 	</head>
 	<body>
 		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg custom-navbar">
 			<div class="container-fluid">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -41,6 +43,14 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 					</ul>
 					<div class="d-flex align-items-center">
 						<span id="user-name" class="me-3"></span>
+						<div class="switch d-flex align-items-center">
+                    		<input type="checkbox" class="checkbox" id="checkbox">
+                    		<label for="checkbox" class="checkbox-label">
+                        	<i class="fas fa-moon"></i>
+                    		<i class="fas fa-sun"></i>
+                    		<span class="ball"></span>
+                    		</label>
+               		 	</div>
 						<button class="btn btn-outline-dark d-flex align-items-center" onclick="window.location.href='../log-in-system/logout.php'">
 							<i class="fas fa-sign-out-alt me-2"></i> Αποσύνδεση </button>
 					</div>
@@ -53,7 +63,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 			<!-- // *** Section: Αιτήσεις -->
 			<div id="requests" class="section-container" style="display: none;">
 				<h2 class="mb-4 text-primary text-center">Αιτήσεις</h2>
-				<div class="d-flex justify-content-between align-items-center mb-4 bg-light p-3 rounded">
+				<div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded">
 					<div class="d-flex flex-wrap align-items-center gap-3" id="requests-filters-container">
 						<!-- Status Filtering -->
 						<div>
@@ -81,7 +91,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 					<div class="card-body p-4">
 						<div class="table-responsive">
 							<table class="table table-hover text-center align-middle" id="requests-table">
-								<thead class="table-light">
+								<thead class="table">
 									<tr>
 										<th>ID Αίτησης</th>
 										<th>Αιτών</th>
@@ -108,17 +118,17 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 				<div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-lg modal-dialog-centered">
 						<div class="modal-content">
-							<div class="modal-header bg-light">
+							<div class="modal-header">
 								<div class="d-flex flex-column">
 									<h5 class="modal-title fw-bold" id="requestModalLabel">Αίτηση Έναρξης Εκπόνησης</h5>
-									<small class="text-muted" id="requestDate">Ημερομηνία Αίτησης: </small>
+									<small class="text" id="requestDate">Ημερομηνία Αίτησης: </small>
 								</div>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
 							</div>
 							<div class="modal-body">
 								<div class="container">
 									<!-- Πληροφορίες Θέματος -->
-									<div class="mb-4 p-3 border rounded bg-light">
+									<div class="mb-4 p-3 border rounded">
 										<h6 class="fw-bold text-primary mb-3">Πληροφορίες Θέματος</h6>
 										<div class="mb-2">
 											<label for="thesesCreationDate" class="form-label fw-bold text-secondary">Ημερομηνία Δημιουργίας Θέματος:</label>
@@ -144,7 +154,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 										</div>
 									</div>
 									<!-- Πληροφορίες Τριμελούς Επιτροπής -->
-									<div class="p-3 border rounded bg-light">
+									<div class="p-3 border rounded">
 										<h6 class="fw-bold text-primary mb-3">Πληροφορίες Τριμελούς Επιτροπής</h6>
 										<div class="mb-2">
 											<label class="form-label fw-bold text-secondary">Μέλος Τριμελούς 2:</label>
@@ -161,7 +171,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									</div>
 								</div>
 							</div>
-							<div class="modal-footer bg-light">
+							<div class="modal-footer">
 								<button type="button" class="btn btn-danger me-auto" id="rejectButton">Απόρριψη</button>
 								<button type="button" class="btn btn-success" id="approveButton">Έγκριση</button>
 							</div>
@@ -172,8 +182,8 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 				<div class="modal fade" id="protocolModal" tabindex="-1" aria-labelledby="protocolModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-md modal-dialog-centered">
 						<div class="modal-content shadow-lg">
-							<div class="modal-header bg-light">
-								<h5 class="modal-title fw-bold text-dark" id="protocolModalLabel">Έγκριση Έναρξης Εκπόνησης</h5>
+							<div class="modal-header">
+								<h5 class="modal-title fw-bold text" id="protocolModalLabel">Έγκριση Έναρξης Εκπόνησης</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
 							</div>
 							<div class="modal-body">
@@ -186,7 +196,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									<textarea class="form-control" id="comment" rows="3" maxlength="150" placeholder="Σχόλιο απόφασης (μέγιστο 150 χαρακτήρες)"></textarea>
 								</div>
 							</div>
-							<div class="modal-footer bg-light">
+							<div class="modal-footer">
 								<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Ακύρωση</button>
 								<button type="button" class="btn btn-primary btn-sm" id="saveProtocolButton">Αποθήκευση</button>
 							</div>
@@ -198,7 +208,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 			<!-- // *** Section: Oles oi diplwmatikes -->
 			<div id="view-theses" class="section-container" style="display: none;">
 				<h2 class="mb-4 text-primary text-center">Όλες οι διπλωματικές</h2>
-				<div class="d-flex justify-content-between align-items-center mb-4 bg-light p-3 rounded">
+				<div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded">
 					<div class="d-flex flex-wrap align-items-center gap-3" id="thesis-filters-container">
 						<!-- Status Filtering -->
 						<div>
@@ -220,7 +230,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 					<div class="card-body p-4">
 						<div class="table-responsive">
 							<table class="table table-hover text-center align-middle">
-								<thead class="table-light">
+								<thead class="table">
 									<tr>
 										<th>ID Διπλωματικής</th>
 										<th>Θέμα</th>
@@ -297,7 +307,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									</div>
 								</div>
 								<!-- info box -->
-								<div class="col-12 bg-white shadow-sm p-3">
+								<div class="col-12 shadow-sm p-3">
 									<div class="d-flex align-items-center">
 										<i class="bi bi-info-circle text-primary me-2"></i>
 										<small>
@@ -453,7 +463,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									</div>
 
 									<!-- Status info -->
-									<div class="col-12 bg-white shadow-sm p-3">
+									<div class="col-12 shadow-sm p-3">
 										<div class="d-flex align-items-center">
 											<i class="bi bi-info-circle text-primary me-2"></i>
 											<small>
@@ -496,7 +506,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 								<h5 class="mt-4 mb-3">Βαθμολογία: <span class="mt-4 mb-3" id="final_grade">-</span></h5>
 								<div class="table-responsive">
 									<table class="table table-hover align-middle text-center">
-										<thead class="table-light">
+										<thead class="table">
 											<tr>
 												<th>Βαθμολογητής</th>
 												<th>Κριτήριο 1</th>
@@ -598,7 +608,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 								</div>
 
 								<!-- JSON Example (Initially Hidden) -->
-								<div id="jsonExample" class="bg-light border rounded p-3 d-none">
+								<div id="jsonExample" class=" border rounded p-3 d-none">
 									<pre>
 
 	{
@@ -643,6 +653,8 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 		<div class="notification-container" id="notification-container">
         </div> <?php include "../globally_accessed/footer.html"; ?>
 
+	<script src="../globally_accessed/dark-mode/switch_script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="secretary.js" defer></script>
 	<script src="../globally_accessed/show_name_on_navbar.js" defer></script>
