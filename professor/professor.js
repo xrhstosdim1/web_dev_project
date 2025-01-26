@@ -840,7 +840,7 @@ function fetchAndDisplayGrades(thesisId) {
             if (data.success) {
                 
                 const grades = data.data;
-
+                //console.log(grades); //debuggggg
                 const allGradesFilled =
                 grades.prof1_grade_crit_1 &&
                 grades.prof1_grade_crit_2 &&
@@ -930,7 +930,7 @@ function fetchAndDisplayGrades(thesisId) {
                             setSaveButton(saveGradesBtn, thesisId, 'member3');
                         }
                     } else {
-                        console.error('den vrethike pote email kathigiti idio me ths vashs')
+                        console.error('den vrethike pote email kathigiti idio me ths vashs. email:', loggedInEmail);
                     }
                 }
             } else {
