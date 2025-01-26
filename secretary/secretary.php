@@ -401,30 +401,34 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 						</div>
 					</div>
 
+					
 					<!-- Thesis Table -->
-					<div class="table-responsive rounded shadow">
-						<table class="table table-borderless align-middle">
-							<thead class="bg-primary text-white">
-								<tr>
-									<th>Φοιτητής</th>
-									<th>ID διπλωματικής</th>
-									<th>Επιβλέπων Καθηγητής</th>
-									<th>Μέλος 1</th>
-									<th>Μέλος 2</th>
-									<th>Ημερομηνία Εξέτασης</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<!-- Dynamic rows will be added here -->
-							</tbody>
-						</table>
+					<div class="card shadow-sm">
+						<div class="card-body p-4">
+							<div class="table-responsive">
+								<table class="table table-hover text-center align-middle">
+									<thead class="table">
+										<tr>
+											<th>Φοιτητής</th>
+											<th>ID Διπλωματικής</th>
+											<th>Επιβλέπων Καθηγητής</th>
+											<th>Μέλος 1</th>
+											<th>Μέλος 2</th>
+											<th>Ημερομηνία Εξέτασης</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Dynamic rows will be added here -->
+									</tbody>
+								</table>
+							</div>
+							<!-- Pagination -->
+							<nav aria-label="Pagination" class="mt-3">
+								<ul class="pagination justify-content-center"></ul>
+							</nav>
+						</div>
 					</div>
-
-					<!-- Pagination -->
-					<nav aria-label="Pagination" class="mt-5">
-						<ul class="pagination justify-content-center"></ul>
-					</nav>
 				</div>
 			</div>
 				<!-- // *** MODAL VATHMOLOGIOU -->

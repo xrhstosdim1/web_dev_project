@@ -435,7 +435,10 @@ function loadGrading(thesisId = null) {
                     tableBody.appendChild(row);
                 });
             } else {
-                showNotification('Δεν βρέθηκαν δεδομένα.', 'error');
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center">Δεν βρέθηκαν δεδομένα.</td>
+                    </tr>`;
             }
         })
         .catch(error => {
