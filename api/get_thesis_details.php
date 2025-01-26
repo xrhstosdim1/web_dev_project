@@ -75,19 +75,20 @@ try {
     $isSupervisor = ($coreDetails['supervisor_email'] === $currentUserEmail);
 
     $studentQuery = "
-        SELECT 
-            df.am_foititi,
-            DATE_FORMAT(df.date_selected, '%d/%m/%Y') AS selection_date,
-            u_student.name AS student_name,
-            u_student.surname AS student_surname
-        FROM 
-            diplwmatiki_foitita df
-        LEFT JOIN 
-            Students s ON df.am_foititi = s.am
-        LEFT JOIN 
-            User u_student ON s.email = u_student.email
-        WHERE 
-            df.id_diplwmatikis = ? AND df.status = 'energi'
+    SELECT 
+        df.am_foititi,
+        DATE_FORMAT(df.date_selected, '%d/%m/%Y') AS selection_date,
+        u_student.name AS student_name,
+        u_student.surname AS student_surname,
+        df.nemertes_link
+    FROM 
+        diplwmatiki_foitita df
+    LEFT JOIN 
+        Students s ON df.am_foititi = s.am
+    LEFT JOIN 
+        User u_student ON s.email = u_student.email
+    WHERE 
+        df.id_diplwmatikis = ? AND df.status = 'energi'
     ";
     $stmt = $conn->prepare($studentQuery);
     $stmt->bind_param('i', $thesisId);
@@ -95,6 +96,7 @@ try {
     $result = $stmt->get_result();
 
     $studentDetails = $result->fetch_assoc();
+
 
     $membersQuery = "
         SELECT 
@@ -146,6 +148,7 @@ try {
                 ? $studentDetails['student_name'] . ' ' . $studentDetails['student_surname']
                 : 'N/A',
             'selection_date'  => $studentDetails['selection_date'] ?? 'N/A',
+            'nemertes_link'   => $studentDetails['nemertes_link'] ?? 'N/A',
             'member2'         => $members['member2'] ?? 'N/A',
             'member3'         => $members['member3'] ?? 'N/A',
             'thesis_requested' => $requestedDetails['thesis_requested'] ?? 'N/A',
@@ -154,6 +157,7 @@ try {
             'completion_date' => $coreDetails['completion_date'] ?? 'N/A'
         ]
     ];
+    
 
     echo json_encode($response);
 

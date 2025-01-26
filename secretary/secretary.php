@@ -364,8 +364,8 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									<span id="_exam-location">Δεν έχει οριστεί</span>
 								</p>
 								<p class="mb-1">
-									<strong>Ανακοίνωση:</strong>
-									<span id="_exam-announcement">Δεν έχει οριστεί</span>
+									<strong>Σύνδεσμος Νημερτή:</strong>
+									<span id="_nemertes_link">Δεν έχει οριστεί</span>
 								</p>
 								<p class="mb-1">
 									<strong>Συνημμένο Αρχείο Φοιτητή:</strong>

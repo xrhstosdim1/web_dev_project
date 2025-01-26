@@ -645,59 +645,56 @@ function openThesisModal(thesisId) {
         fetch(thesisDetailsUrl).then(response => response.json()),
         fetch(examDetailsUrl).then(response => response.json())
     ])
-        .then(([gradingData, detailsData, examData]) => {
-            if (detailsData.success && gradingData.success && examData.success) {
-                const details = detailsData.details || {};
-                const grades = gradingData.data || {};
-                const exam = examData.announcement || {};
+    .then(([gradingData, detailsData, examData]) => {
+        if (detailsData.success && gradingData.success && examData.success) {
+            const details = detailsData.details || {};
+            const grades = gradingData.data || {};
+            
+            const exam = examData.announcements && examData.announcements[0] ? examData.announcements[0] : {};
+            const StudentfileName = examData.file_name || '';
+            const thesisStudentFileLinkElement = document.getElementById('student-thesis-file-name');
 
-
-                document.getElementById('thesis-topic-header').innerText = (details.topic || 'N/A');
-                document.getElementById('thesis-summary').innerText = details.summary || 'N/A';
-                document.getElementById('thesis-student').innerText = details.student || 'N/A';
-                document.getElementById('thesis-supervisor').innerText = details.supervisor || 'N/A';
-                document.getElementById('member2_').innerText = details.member2 || 'N/A';
-                document.getElementById('member3_').innerText = details.member3 || 'N/A';
-                document.getElementById('thesis-creation-date').innerText = details.creation_date || 'N/A';
-                document.getElementById('thesis-selection-date').innerText = details.selection_date || 'N/A';
-                document.getElementById('thesis-start-date').innerText = details.start_date || 'N/A';
-                document.getElementById('thesis-exam-date').innerText = details.exam_date || 'N/A';
-                document.getElementById('thesis-requested-date').innerText = details.thesis_requested || 'N/A';
-                document.getElementById('thesis-grading-date').innerText = grades.date_requested || 'N/A';
-                document.getElementById('thesis-completion-date').innerText = details.completion_date || 'N/A';
-
-                document.getElementById('_exam-date').innerText = exam.exam_date || 'N/A';
-                document.getElementById('_exam-location').innerText = exam._location || 'N/A';
-                document.getElementById('_exam-announcement').innerText = exam.ann_body || 'N/A';
-      
-
-                //arxeio kathigiti
-                const fileName = details.file_name || '';
-                const thesisFileLinkElement = document.getElementById('thesis-file-name');
-
-                if (thesisFileLinkElement) {
-                    if (fileName && fileName !== 'N/A') {
-                        thesisFileLinkElement.innerHTML = `<a href="../uploads/${fileName}" target="_blank">${fileName}</a>`;
-                    } else {
-                        thesisFileLinkElement.innerHTML = '<span>Δεν υπάρχει αρχείο</span>';
-                    }
+            
+            document.getElementById('thesis-topic-header').innerText = details.topic || 'N/A';
+            document.getElementById('thesis-summary').innerText = details.summary || 'N/A';
+            document.getElementById('thesis-student').innerText = details.student || 'N/A';
+            document.getElementById('thesis-supervisor').innerText = details.supervisor || 'N/A';
+            document.getElementById('member2_').innerText = details.member2 || 'N/A';
+            document.getElementById('member3_').innerText = details.member3 || 'N/A';
+            document.getElementById('thesis-creation-date').innerText = details.creation_date || 'N/A';
+            document.getElementById('thesis-selection-date').innerText = details.selection_date || 'N/A';
+            document.getElementById('thesis-start-date').innerText = details.start_date || 'N/A';
+            document.getElementById('thesis-exam-date').innerText = details.exam_date || 'N/A';
+            document.getElementById('thesis-requested-date').innerText = details.thesis_requested || 'N/A';
+            document.getElementById('thesis-grading-date').innerText = grades.date_requested || 'N/A';
+            document.getElementById('thesis-completion-date').innerText = details.completion_date || 'N/A';
+            document.getElementById('_nemertes_link').innerText = details.nemertes_link || 'N/A';
+            
+            
+            document.getElementById('_exam-date').innerText = exam.exam_date || 'N/A';
+            document.getElementById('_exam-location').innerText = exam._location || 'N/A';
+    
+            //arxeio foithth
+            if (thesisStudentFileLinkElement) {
+                if (StudentfileName && StudentfileName !== 'N/A') {
+                    thesisStudentFileLinkElement.innerHTML = `<a href="../uploads/${StudentfileName}" target="_blank">${StudentfileName}</a>`;
+                } else {
+                    thesisStudentFileLinkElement.innerHTML = '<span>Δεν υπάρχει αρχείο</span>';
                 }
+            }   
+
+            //arxeio kathigiti
+            const fileName = details.file_name || '';
+            const thesisFileLinkElement = document.getElementById('thesis-file-name');
+            
+            if (thesisFileLinkElement) {
+                if (fileName && fileName !== 'N/A') {
+                    thesisFileLinkElement.innerHTML = `<a href="../uploads/${fileName}" target="_blank">${fileName}</a>`;
+                } else {
+                    thesisFileLinkElement.innerHTML = '<span>Δεν υπάρχει αρχείο</span>';
+                }
+            }
                 
-
-                //arxeio foithth
-                const StudentfileName = examData.file_name || '';
-                const thesisStudentFileLinkElement = document.getElementById('student-thesis-file-name');
-
-                if (thesisStudentFileLinkElement) {
-                    if (StudentfileName && StudentfileName !== 'N/A') {
-                        thesisStudentFileLinkElement.innerHTML = `<a href="../uploads/${StudentfileName}" target="_blank">${StudentfileName}</a>`;
-                    } else {
-                        thesisStudentFileLinkElement.innerHTML = '<span>Δεν υπάρχει αρχείο</span>';
-                    }
-                }
-
-
-
 
                 const steps = document.querySelectorAll('.progress-timeline .step');
 
