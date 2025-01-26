@@ -665,13 +665,7 @@ function openThesisModal(thesisId) {
                 document.getElementById('_exam-date').innerText = exam.exam_date || 'N/A';
                 document.getElementById('_exam-location').innerText = exam._location || 'N/A';
                 document.getElementById('_exam-announcement').innerText = exam.ann_body || 'N/A';
-
-
-
-                
-                
-                
-
+      
 
                 //arxeio kathigiti
                 const fileName = details.file_name || '';
@@ -709,6 +703,8 @@ function openThesisModal(thesisId) {
                 });
                 
 
+
+                
                 switch (details.status) {
                     case 'diathesimi':
                         resetProgressModal();

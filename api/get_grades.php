@@ -59,12 +59,12 @@ try {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-        echo json_encode(['success' => true, 'data' => $data]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Δεν βρέθηκαν δεδομένα για αυτή τη διπλωματική. Επικοινωνήστε με τη γραμματεία.']);
+    $grades = [];
+    while ($row = $result->fetch_assoc()) {
+        $grades[] = $row;
     }
+
+    echo json_encode(['success' => true, 'data' => $grades]);
 
     $stmt->close();
     $conn->close();
