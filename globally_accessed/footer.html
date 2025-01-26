@@ -1,31 +1,44 @@
-<footer class="footer mt-auto py-3 bg-dark text-white">
+<footer class="footer text-white py-3">
   <style>
-      html, body {
-          height: 100%;
-      }
+    html, body {
+      height: 100%;
+    }
 
-      body {
-          display: flex;
-          flex-direction: column;
-      }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-      .footer {
-          height: 4,5rem;
-          margin-top: auto;
-          background-color: #343a40; /* Dark background */
-          color: white; /* White text */
-          text-align: center;
-          padding: 10px 0;
-      }
+    .footer {
+      margin-top: auto;
+      background-color: #343a40;
+      color: #f8f9fa;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-    .name {
-        margin-right: 2em; /* Προσθέτει απόσταση 2em μεταξύ των ονομάτων */
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer .names span {
+      margin-right: 1.5rem;
+    }
+
+    .footer small {
+      color: #adb5bd;
     }
   </style>
-<div class="container">
-    <span>
-      <small><span class="name">Bertsekas P.</span> <span class="name">Dimitrakopoulos C.</span> <span class="name">Papoutsi A.</span> </small>
-      <br><small><span>© 2025</span> No redistribution allowed.</small></span>
-</span>
-</div>
+
+  <div class="container">
+    <div class="names">
+      <span title="ΑΜ: 1093445">Bertsekas P.</span>
+      <span title="ΑΜ: 1079500">Dimitrakopoulos C.</span>
+      <span title="ΑΜ: 1093473">Papoutsi A.</span>
+    </div>
+    <small>© 2025 No redistribution allowed</small>
+  </div>
 </footer>

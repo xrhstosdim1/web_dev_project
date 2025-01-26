@@ -9,7 +9,6 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
     display: none;
 }
-
 .section-container.active {
     opacity: 1;
     transform: translateY(0);
@@ -21,9 +20,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
-    
 }
-
 .table-hover tbody tr:hover {
     background-color: #f8f9fa;
 }
@@ -39,7 +36,6 @@
 .pagination .page-link {
     color: #007bff;
 }
-
 .pagination .page-item.active .page-link {
     background-color: #007bff;
     border-color: #007bff;
@@ -51,14 +47,12 @@
     border-radius: 6px;
     border: 1px solid #ced4da;
 }
-
 label {
-    font-size: 0.9rem;  
+    font-size: 0.9rem;
 }
 
 /* Backgrounds */
 .bg-light {
-   
     border-radius: 8px;
 }
 
@@ -74,20 +68,16 @@ label {
     transform: translateY(-10px);
     transition: all 0.3s ease-in-out;
 }
-
 .navbar-nav .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
-
-/* Hover Effects for Links */
 .navbar-nav .nav-link,
 .navbar-nav .dropdown-item {
     transition: color 0.2s ease, background-color 0.2s ease;
 }
-
 .navbar-nav .nav-link:hover,
 .navbar-nav .dropdown-item:hover {
     color: #007bff;
@@ -98,29 +88,30 @@ label {
 .gap-3 {
     gap: 1rem !important;
 }
-
 .split-button-group .dropdown-menu {
     min-width: auto;
 }
 
 /* Suggestions List */
-#student-suggestions {
+#student-suggestions,
+#edit-student-suggestions {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
     list-style: none;
     padding: 0;
     margin: 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: white;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
 }
-
-#student-suggestions .list-group-item {
+#student-suggestions .list-group-item,
+#edit-student-suggestions .list-group-item {
     cursor: pointer;
 }
-
-#student-suggestions .list-group-item:hover {
+#student-suggestions .list-group-item:hover,
+#edit-student-suggestions .list-group-item:hover {
     background-color: #f1f1f1;
 }
 
@@ -128,25 +119,39 @@ label {
 .modal-dialog {
     max-width: 900px;
 }
-
+.modal-sm {
+    max-width: 400px;
+}
+.modal-content {
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(220, 53, 69, 0.4);
+}
+.modal-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 .modal-body {
     padding: 1.5rem;
+    font-size: 0.9rem;
+}
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-top: none;
 }
 
 /* Section Styling */
 .sector {
     padding: 1rem 1.5rem;
-   
     border-radius: 10px;
     margin-bottom: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .sector h6 {
     font-size: 1rem;
     margin-bottom: 0.8rem;
 }
-
 .sector h6 i {
     font-size: 1rem;
     margin-right: 0.4rem;
@@ -164,7 +169,6 @@ label {
     display: flex;
     flex-direction: column;
 }
-
 .comment-item {
     max-width: 100%;
 }
@@ -176,61 +180,27 @@ label {
     margin-left: auto;
 }
 
-/* Modal Footer */
-.modal-footer {
-    padding: 1rem;
-    justify-content: center;
-    border-top: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#edit-student-suggestions {
-    position: absolute;
-    z-index: 1000;
-    width: 100%;
-    background: white;
-    border: 1px solid #ddd;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-
-
-
-
+/* Progress Timeline */
 .progress-timeline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
-
 .step {
-    position: relative;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    flex: 1;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
-
 .step .circle {
     width: 40px;
-    height: auto;
+    height: 40px;
     border-radius: 50%;
     background-color: #e0e0e0;
     display: flex;
@@ -240,42 +210,27 @@ label {
     color: #6c757d;
     transition: all 0.3s ease;
 }
-
 .step .label {
-    margin-top: 1px;
-    font-size: 15px;
+    margin-top: 8px;
+    font-size: 14px;
     font-weight: bold;
     color: #6c757d;
 }
-
-.step small {
-    margin-top: 5px;
-    font-size: 12px;
-    color: #6c757d;
-}
-
-/* Ενεργό Βήμα */
 .step.active .circle {
     background-color: #2196f3;
     color: white;
     box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
 }
-
 .step.active .label {
     color: #2196f3;
 }
-
-/* Ολοκληρωμένο Βήμα */
 .step.completed .circle {
     background-color: #4caf50;
     color: white;
 }
-
 .step.completed .label {
     color: #4caf50;
 }
-
-/* Γραμμή Σύνδεσης */
 .progress-timeline::before {
     content: "";
     position: absolute;
@@ -286,102 +241,15 @@ label {
     background-color: #e0e0e0;
     z-index: -1;
 }
-
+.step:first-child::before {
+    content: none;
+}
 .progress-timeline .step.completed ~ .step::before {
-    background-color: transparent; /*PROBLEMATIC, fixed */
-}
-
-.step::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    width: 100%;
-    height: 5px;
-    background-color: transparent; /*PROBLEMATIC, evgaze ena grizaki san grammi, fixed */
-    z-index: -1;
-    transform: translateX(-50%);
-}
-
-
-
-.step {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.step .label {
-    display: block;
-    font-weight: bold;
-}
-
-.step small {
-    color: #6c757d;
-}
-
-.step.clickable {
-    cursor: pointer;
-    background-color: rgba(0, 123, 255, 0.1);
-    color: #007bff;
-    font-weight: bold;
-}
-
-.step.clickable:hover {
-    background-color: rgba(0, 123, 255, 0.2);
-    color: #0056b3;
-    transform: scale(1.05);
-}
-
-
-.step.non-clickable {
-    color: #6c757d;
     background-color: transparent;
-    cursor: default;
 }
 
-
-
-
-
-
-
-/* Μείωση μεγέθους του modal */
-.modal-sm {
-    max-width: 400px;
-}
-
-.modal-content {
-    border-radius: 0.5rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(220, 53, 69, 0.4);
-}
-
-/* Ζώνη του modal */
-.modal-backdrop.show {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Στοίχιση κειμένου και περιθώρια */
-.modal-body {
-    padding: 1.5rem;
-    font-size: 0.9rem;
-}
-
-.modal-footer {
-    padding: 0.5rem 1rem;
-}
-
-
-
-
-
-
+/* Additional Classes */
 #announce-exam-btn {
     float: right;
     margin-top: 5px;
 }
-
