@@ -25,7 +25,7 @@ if ($reason === 'edit') {
         FROM 
             diplwmatiki_ka8igita dk
         LEFT JOIN 
-            diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis
+            diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis AND df.status = 'energi'
         LEFT JOIN 
             Students s ON df.am_foititi = s.am
         LEFT JOIN 
@@ -51,7 +51,7 @@ if ($reason === 'edit') {
             FROM 
                 diplwmatiki_ka8igita dk
             LEFT JOIN 
-                diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis
+                diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis AND df.status = 'energi'
             LEFT JOIN 
                 Students s ON df.am_foititi = s.am
             LEFT JOIN 
@@ -90,7 +90,7 @@ if ($reason === 'edit') {
             LEFT JOIN 
                 User u ON s.email = u.email
             WHERE 
-                (df.prof2 = ? OR df.prof3 = ?)
+                (df.prof2 = ? OR df.prof3 = ?) AND df.status = 'energi'
         ";
 
         if ($status !== 'all') {
@@ -117,7 +117,7 @@ if ($reason === 'edit') {
             FROM 
                 diplwmatiki_ka8igita dk
             LEFT JOIN 
-                diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis
+                diplwmatiki_foitita df ON dk.id = df.id_diplwmatikis AND df.status = 'energi'
             LEFT JOIN 
                 Students s ON df.am_foititi = s.am
             LEFT JOIN 
@@ -150,7 +150,7 @@ if ($reason === 'edit') {
             LEFT JOIN 
                 User u ON s.email = u.email
             WHERE 
-                (df.prof2 = ? OR df.prof3 = ?)
+                (df.prof2 = ? OR df.prof3 = ?) AND df.status = 'energi'
         ";
 
         if ($status !== 'all') {

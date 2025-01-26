@@ -69,14 +69,16 @@ try { //check an exei hdh diplwmatikh
     $updateStatusStmt->execute();
     $updateStatusStmt->close();
 
+    $status = 'energi';
+
     $insertThesisStmt = $conn->prepare("
-        INSERT INTO diplwmatiki_foitita (am_foititi, id_diplwmatikis) 
-        VALUES (?, ?)
+        INSERT INTO diplwmatiki_foitita (am_foititi, id_diplwmatikis, status) 
+        VALUES (?, ?, ?)
     ");
-    $insertThesisStmt->bind_param('ii', $studentAM, $thesisID);
+    $insertThesisStmt->bind_param('iis', $studentAM, $thesisID, $status);
     $insertThesisStmt->execute();
     $insertThesisStmt->close();
-
+    
     $conn->commit();
     echo json_encode(['success' => true, 'message' => 'Το θέμα επιλέχθηκε επιτυχώς.']);
 } catch (Exception $e) {

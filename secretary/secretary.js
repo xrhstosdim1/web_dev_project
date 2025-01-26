@@ -916,7 +916,7 @@ function showDenyConfirmationModal(title, message1, message2 = '', onConfirm) { 
         modalContainer.remove();
     });
 }
-
+//stelnei aithsh akurwshs ANATHESHS tou thematos ston foithth san na to esteile o foithths
 function cancelAssignment(thesisId) {
     fetch('../api/secretary/cancel_assignment.php', {
         method: 'POST',

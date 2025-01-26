@@ -125,6 +125,69 @@
 
 
 
+-- insert sth grammateia gia egkrish allaghs foithth
+    --works
+    USE project_web;
+    DROP PROCEDURE IF EXISTS `insert_grammateia_pros_allagh`;
+    DELIMITER //
+
+    CREATE PROCEDURE `insert_grammateia_pros_allagh` (IN diplwmatiki_id INT, IN reason ENUM('kathigitis', 'foititis'))
+    BEGIN
+        DECLARE am_foitita INT;
+        DECLARE email_f VARCHAR(50);
+        DECLARE profof1 VARCHAR(50);
+        DECLARE profof2 VARCHAR(50);
+        DECLARE profof3 VARCHAR(50);
+
+        SELECT am_foititi
+        INTO am_foitita
+        FROM diplwmatiki_foitita
+        WHERE id_diplwmatikis = diplwmatiki_id
+        LIMIT 1;
+
+        IF am_foitita IS NULL THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Η διπλωματική δεν βρέθηκε ή δεν είναι ενεργή.';
+        END IF;
+
+        SELECT email
+        INTO email_f
+        FROM Students
+        WHERE am = am_foitita
+        LIMIT 1;
+
+        SELECT email
+        INTO profof1
+        FROM diplwmatiki_ka8igita
+        WHERE id = diplwmatiki_id AND (status = 'energi' OR status = 'pros_egrisi')
+        LIMIT 1;
+
+        SELECT prof2, prof3
+        INTO profof2, profof3
+        FROM diplwmatiki_foitita
+        WHERE id_diplwmatikis = diplwmatiki_id
+        LIMIT 1;
+
+        IF (reason = 'kathigitis') THEN
+            INSERT INTO gramateia (
+                aitwn_email, am_foititi, id_diplwmatikis, prof1, prof2, prof3, aithsh_gia, apanthsh
+            ) VALUES (
+                profof1, am_foitita, diplwmatiki_id, profof1, profof2, profof3, 'pros_egrisi_allagis_f', 'pending'
+            );
+        ELSEIF (reason = 'foititis') THEN
+            INSERT INTO gramateia (
+                aitwn_email, am_foititi, id_diplwmatikis, prof1, prof2, prof3, aithsh_gia, apanthsh
+            ) VALUES (
+                email_f, am_foitita, diplwmatiki_id, profof1, profof2, profof3, 'pros_egrisi_allagis_f', 'pending'
+            );
+        END IF;
+    END;
+    //
+    DELIMITER ;
+
+
+
+
 -- insert sth grammateia thn "aithsh" gia egkrisi enarkshs
     -- works
     USE project_web;

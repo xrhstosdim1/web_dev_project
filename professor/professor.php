@@ -324,6 +324,7 @@ include "../log-in-system/user_auth.php";
 							<p class="mb-1">
 								<strong>Φοιτητής:</strong>
 								<span id="thesis-student"></span>
+								<span id="change-student-container" class="ms-auto"></span>
 							</p>
 							<p class="mb-1">
 								<strong>Επιβλέπων:</strong>

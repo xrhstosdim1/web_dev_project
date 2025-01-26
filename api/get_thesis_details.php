@@ -87,7 +87,7 @@ try {
         LEFT JOIN 
             User u_student ON s.email = u_student.email
         WHERE 
-            df.id_diplwmatikis = ?
+            df.id_diplwmatikis = ? AND df.status = 'energi'
     ";
     $stmt = $conn->prepare($studentQuery);
     $stmt->bind_param('i', $thesisId);
@@ -109,7 +109,7 @@ try {
         FROM 
             diplwmatiki_foitita df
         WHERE 
-            df.id_diplwmatikis = ?
+            df.id_diplwmatikis = ? AND df.status = 'energi'
         LIMIT 1
     ";
     $stmt = $conn->prepare($membersQuery);

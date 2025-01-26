@@ -514,26 +514,43 @@ function openThesisModal(thesisId) {
 							statusEnergi.style.whiteSpace = 'pre-wrap';
 							statusEnergi.textContent =
 								'Ο φοιτητής εκπονεί την εργασία του. Μόλις ολοκληρώσει, πατήστε "Εξέταση" για να ορίσει ημερομηνία και τρόπο εξέτασης, όπως επίσης να ανεβάσει και το πρόχειρο κείμενο της εργασίας.\n' +
-								'Με το πέρας των 2 ετών από την έναρξη εκπόνησης, θα μπορείτε να ακυρώσετε την ανάθεση.';
+								'Με το πέρας των 2 ετών από την έναρξη εκπόνησης, θα μπορείτε να ακυρώσετε την ανάθεση ή το θέμα.';
 
 							if (details.two_years_passed) {
 								const cancelAssignmentContainer = document.getElementById('cancel-assignment-container');
+                                const changeStudentContainer = document.getElementById('change-student-container');
 
+                                changeStudentContainer.innerHTML = '';
 								cancelAssignmentContainer.innerHTML = '';
 
 								const cancelAssignmentButton = document.createElement('button');
 								cancelAssignmentButton.id = 'cancel-assignment-btn';
 								cancelAssignmentButton.className = 'btn btn-danger bt px-4 py-2';
-								cancelAssignmentButton.textContent = 'Αίτηση Ακύρωσης Ανάθεσης';
+								cancelAssignmentButton.textContent = 'Αίτηση Ακύρωσης Θέματος';
 								cancelAssignmentButton.onclick = () => {
                                     showDenyConfirmationModal(
                                         'Επιβεβαίωση Ακύρωσης',
-                                        'Είστε σίγουροι ότι θέλετε να αιτηθείτε ακύρωση ανάθεσης της διπλωματικής;',
-                                        '',
+                                        'Είστε σίγουροι ότι θέλετε να αιτηθείτε ακύρωση του θέματος;',
+                                        'Το θέμα ΔΕΝ θα είναι διαθέσιμο για επιλογή απο φοιτητή μετά την έγκριση του αιτήματός σας.',
                                         () => cancelAssignment(thesisId)
                                     );
                                 };
 								cancelAssignmentContainer.appendChild(cancelAssignmentButton);
+
+
+                                const ChangeStudentButton = document.createElement('button');
+								ChangeStudentButton.id = 'change-student-btn';
+								ChangeStudentButton.className = 'btn btn-sm btn-danger bt';
+								ChangeStudentButton.textContent = 'Αίτηση Αλλαγής Φοιτητή';
+								ChangeStudentButton.onclick = () => {
+                                    showDenyConfirmationModal(
+                                        'Επιβεβαίωση Ακύρωσης',
+                                        'Είστε σίγουροι ότι θέλετε να αιτηθείτε αλλαγή φοιτητή;',
+                                        'Το θέμα θα ξαναγίνει διαθέσιμο για επιλογή από φοιτητή εάν εγκριθεί το αίτημά σας.',
+                                        () => changeStudent(thesisId)
+                                    );
+                                };
+								changeStudentContainer.appendChild(ChangeStudentButton);
 							}
 						} else {
 							document.getElementById('status-info').innerText = 'Ο φοιτητής εκπονεί την εργασία του.';
@@ -684,6 +701,33 @@ function cancelAssignment(thesisId) {
     .catch((error) => {
         console.error('Σφάλμα:', error);
         showNotification('Υπήρξε σφάλμα κατά την ακύρωση της ανάθεσης.', 'error');
+    });
+}
+//stelnei aithsh allaghs foithth ws kathigitis sth grammateia me trigger insert_grammateia_pros_allagh
+function changeStudent(thesisId){
+    fetch('../api/change_student.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: thesisId }),
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Σφάλμα κατά την αποστολή της αίτησης.');
+        }
+        return response.json();
+    })
+    .then((data) => {
+        if (data.success) {
+            showNotification('Η αίτηση στάλθηκε επιτυχώς.', 'success');
+        } else {
+            showNotification('Σφάλμα: ' + data.message, 'error');
+        }
+    })
+    .catch((error) => {
+        console.error('Σφάλμα:', error);
+        showNotification('Υπήρξε σφάλμα κατά την αποστολή της αίτησης.', 'error');
     });
 }
 //plhrofories eksetashs fetch kai view. afhnei anakoinwsh mono an einai ola ta pedia gemata

@@ -24,7 +24,7 @@ try {
     $announcements = $resultAnnouncements->fetch_all(MYSQLI_ASSOC);
     $stmtAnnouncements->close();
 
-    $stmtFileName = $conn->prepare("SELECT file_name FROM diplwmatiki_foitita WHERE id_diplwmatikis = ?");
+    $stmtFileName = $conn->prepare("SELECT file_name FROM diplwmatiki_foitita WHERE id_diplwmatikis = ? AND status = 'energi'");
     $stmtFileName->bind_param('i', $id_diplwmatikis);
     $stmtFileName->execute();
     $resultFileName = $stmtFileName->get_result();
