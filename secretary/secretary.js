@@ -447,7 +447,7 @@ function loadGrading(thesisId = null) {
         });
 }
 //modal vathmologiou
-function openGradingModal(thesisId) { //TODO:: bug me to status bar, den deixnei to status
+function openGradingModal(thesisId) {
     const thesisGradesUrl = `../api/get_grades.php?id=${thesisId}`;
     const thesisDetailsUrl = `../api/get_thesis_details.php?id=${thesisId}`;
     const modalElement = document.getElementById('gradingModal');
@@ -513,18 +513,19 @@ function openGradingModal(thesisId) { //TODO:: bug me to status bar, den deixnei
                 step.style.backgroundColor = "";
             });
 
-
+            //console.log(vathm_details.status); //debugggg
             switch (vathm_details.status) {
+                
                 case 'exetasi':
                     resetProgressModal();
                     const stepsExetasi = document.querySelectorAll('.vathm-progress-timeline .step');
                     cancelAssignmentContainer.innerHTML = '';
                     
                     if(details.exam_date_pass = true){
-                        updateSteps(stepsExetasi, 3, 4);                        
+                        updateSteps(stepsExetasi, 1, 0);                        
                         document.getElementById('status-info').innerText ='Εκκρεμεί εξέταση του φοιτητή από την Τριμελή επιτροπή. Πληροφορίες εξέτασης βρίσκονται παρακάτω.';
                     }else if (details.exam_date_pass = false){
-                        updateSteps(stepsExetasi, 4, 4);
+                        updateSteps(stepsExetasi, 1, 1);
                         document.getElementById('status-info').innerText ='Η εξέταση έχει ολοκληρωθεί. Εκκρεμεί η αλλαγή κατάστασης από τον καθηγητή για την ενεργοποίηση της βαθμολόγησης.';
                     }
                     break;
@@ -533,10 +534,10 @@ function openGradingModal(thesisId) { //TODO:: bug me to status bar, den deixnei
                     const stepsVathmologisi = document.querySelectorAll('.vathm-progress-timeline .step');
                                        
                     if(grades.prof1_grade_crit_1 && grades.prof1_grade_crit_2 && grades.prof1_grade_crit_3 && grades.prof2_grade_crit_1 && grades.prof2_grade_crit_2 && grades.prof2_grade_crit_3 && grades.prof3_grade_crit_1 && grades.prof3_grade_crit_2 && grades.prof3_grade_crit_3){
-                        updateSteps(stepsVathmologisi, 5, 5);
+                        updateSteps(stepsVathmologisi, 1, 1);
                         document.getElementById('vathm-status-info').innerText ='Οι βαθμολογητές έχουν ολοκληρώσει την βαθμολόγηση. Ελέγξτε τις αιτήσεις.';
                     }else{        
-                        updateSteps(stepsVathmologisi, 5, 5);
+                        updateSteps(stepsVathmologisi, 2, 2);
                         document.getElementById('vathm-status-info').innerText ='Οι βαθμολογητές εισάγουν τις βαθμολογίες τους. Σύντομα θα πρέπει να τις εγκρίνετε.';
                     }
                     break;
