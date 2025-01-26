@@ -59,15 +59,42 @@ try {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $grades = [];
-    while ($row = $result->fetch_assoc()) {
-        $grades[] = $row;
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+    } else {
+        $data = [
+            'id_diplwmatikis' => $idDiplwmatikis,
+            'prof1' => null,
+            'prof1_name' => 'N/A',
+            'prof1_grade_crit_1' => null,
+            'prof1_grade_crit_2' => null,
+            'prof1_grade_crit_3' => null,
+            'prof1_grade_crit_4' => null,
+            'prof1_final_grade' => null,
+            'prof2' => null,
+            'prof2_name' => 'N/A',
+            'prof2_grade_crit_1' => null,
+            'prof2_grade_crit_2' => null,
+            'prof2_grade_crit_3' => null,
+            'prof2_grade_crit_4' => null,
+            'prof2_final_grade' => null,
+            'prof3' => null,
+            'prof3_name' => 'N/A',
+            'prof3_grade_crit_1' => null,
+            'prof3_grade_crit_2' => null,
+            'prof3_grade_crit_3' => null,
+            'prof3_grade_crit_4' => null,
+            'prof3_final_grade' => null,
+            'date_requested' => null,
+            'final_grade' => null
+        ];
     }
 
-    echo json_encode(['success' => true, 'data' => $grades]);
+    echo json_encode(['success' => true, 'data' => $data]);
 
     $stmt->close();
     $conn->close();
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
+?>
