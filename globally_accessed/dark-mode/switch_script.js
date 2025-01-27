@@ -25,8 +25,8 @@ checkbox.addEventListener('change', () => {
 
     if (toggleCount === 10) {
         window.open('https://youtu.be/nHXnyNGXgA4?t=3', '_blank');
-        alert("easter egg gia opoion paizei polu me to dark mode ;) a re vasilaki karra");
         console.log('TWRA? TI GINETAI TWRA?????');
+        console.log("easter egg gia opoion paizei polu me to dark mode ;) a re vasilaki karra");
         
         toggleCount = 0;
         localStorage.setItem('toggleCount', toggleCount);
