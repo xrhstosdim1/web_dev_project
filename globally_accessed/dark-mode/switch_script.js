@@ -15,11 +15,9 @@ checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
         html.setAttribute("data-bs-theme", "dark");
         localStorage.setItem('theme', 'dark');
-        console.log('Dark mode enabled');
     } else {
         html.setAttribute("data-bs-theme", "light");
         localStorage.setItem('theme', 'light');
-        console.log('Dark mode disabled');
     }
 
     toggleCount++;
