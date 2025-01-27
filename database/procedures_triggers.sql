@@ -159,7 +159,7 @@
         SELECT email
         INTO profof1
         FROM diplwmatiki_ka8igita
-        WHERE id = diplwmatiki_id AND (status = 'energi' OR status = 'pros_egrisi')
+        WHERE id = diplwmatiki_id AND (status = 'energi')
         LIMIT 1;
 
         SELECT prof2, prof3
