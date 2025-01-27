@@ -141,7 +141,7 @@ CREATE TABLE vathmologio (
     prof3_grade_crit_3 DECIMAL(4,2),
     prof3_grade_crit_4 DECIMAL(4,2),
     prof3_final_grade DECIMAL(4,2) AS (prof3_grade_crit_1 * 0.6 + prof3_grade_crit_2 * 0.15 + prof3_grade_crit_3 * 0.1 + prof3_grade_crit_4 * 0.15),
-	final_grade DECIMAL(4,2),
+	final_grade DECIMAL(4,2) AS ((prof1_final_grade + prof2_final_grade + prof3_final_grade) / 3),
     status ENUM("prosva8mologisi", "egkekrimeni", "aporif8ike", "anamoni_gia_egkrisi", "anamoni") DEFAULT "anamoni",
     CONSTRAINT fk_vathmologio_diplwmatikis FOREIGN KEY (id_diplwmatikis) REFERENCES diplwmatiki_ka8igita (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
