@@ -1,11 +1,14 @@
 const html = document.getElementById('htmlPage');
 const checkbox = document.getElementById('checkbox');
-document.addEventListener('DOMContentLoaded', () => { // otan fortwnei i selida apo8ikevw protimisi gia global xrisi
+let toggleCount = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
     const theme = localStorage.getItem('theme');
     if (theme) {
         html.setAttribute("data-bs-theme", theme);
         checkbox.checked = theme === 'dark';
     }
+    toggleCount = parseInt(localStorage.getItem('toggleCount')) || 0;
 });
 
 checkbox.addEventListener('change', () => {
@@ -17,5 +20,16 @@ checkbox.addEventListener('change', () => {
         html.setAttribute("data-bs-theme", "light");
         localStorage.setItem('theme', 'light');
         console.log('Dark mode disabled');
+    }
+
+    toggleCount++;
+    localStorage.setItem('toggleCount', toggleCount);
+
+    if (toggleCount === 10) {
+        window.open('https://youtu.be/nHXnyNGXgA4?t=3', '_blank');
+        console.log('TWRA? TI GINETAI TWRA?????');
+        
+        toggleCount = 0;
+        localStorage.setItem('toggleCount', toggleCount);
     }
 });
