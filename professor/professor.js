@@ -589,7 +589,6 @@ function openThesisModal(thesisId) {
 							document.getElementById('announce-exam-main-btn').style.display = 'none';
 						}
 						break;
-
 					case 'vathmologisi':
 						const stepsVathmologisi = document.querySelectorAll('.progress-timeline .step');
 						resetProgressModal();

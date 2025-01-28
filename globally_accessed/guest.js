@@ -8,7 +8,8 @@ function fetchCompletedTheses() {
 	const loadingIndicator = document.getElementById('loading');
 
 	if (!tableBody) {
-		console.error('Το στοιχείο completed-table-body δεν υπάρχει.');
+		showNotification('Λείπει το completed-table-body.', 'error');
+        console.error('Element completed-table-body not found.');
 		return;
 	}
 
@@ -22,12 +23,15 @@ function fetchCompletedTheses() {
 
 			if (data.success && data.theses.length > 0) {
 				data.theses.forEach(thesis => {
+					const formattedDate = new Date(thesis.submission_date).toLocaleDateString('el-GR');
+
 					const row = `
                         <tr>
                             <td>${thesis.topic}</td>
                             <td>${thesis.professor_name}</td>
                             <td>${thesis.student_name}</td>
-                            <td><a href="${thesis.nemertes_link}" target="_blank" class="btn btn-link">Δείτε περισσότερα</a></td>
+                            <td>${formattedDate}</td>
+                            <td><a href="${thesis.nemertes_link}" target="_blank" class="btn btn-link">Νημερτής</a></td>
                         </tr>
                     `;
 					tableBody.insertAdjacentHTML('beforeend', row);
@@ -59,7 +63,8 @@ function loadAnnouncements() {
     const endDate = document.getElementById('end-date').value;
 
     if (!announcementsTableBody) {
-        console.error('Το στοιχείο announcements-table-body δεν υπάρχει.');
+        showNotification('Λείπει το announcements-table-body.', 'error');
+        console.error('Element announcements-table-body not found.');
         return;
     }
 
@@ -79,11 +84,15 @@ function loadAnnouncements() {
                 window.announcementsData = data.announcements;
 
                 data.announcements.forEach(announcement => {
+                    const examDate = new Date(announcement.exam_date);
+                    const formattedDate = examDate.toLocaleDateString('el-GR');//telika mporei na ginei pio eukola to format, oops
+                    const formattedTime = examDate.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit', hour12: false });
+
                     const row = `
                         <tr>
                             <td>${announcement.student_name}</td>
                             <td>${announcement.thesis_topic}</td>
-                            <td>${new Date(announcement.exam_date).toLocaleString()}</td>
+                            <td>${formattedDate}, ${formattedTime}</td>
                             <td>${announcement._location}</td>
                             <td>${announcement.ann_body}</td>
                         </tr>
