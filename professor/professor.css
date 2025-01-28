@@ -253,3 +253,52 @@ label {
     float: right;
     margin-top: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .stat-section {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .stat-section h3 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .row.g-4 {
+        row-gap: 40px;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto !important;
+    }
+    
+    /* Pie Chart styling για καλύτερη ισορροπία */
+    #thesesPieChart {
+        max-width: 80%;
+        margin: 0 auto;
+    }

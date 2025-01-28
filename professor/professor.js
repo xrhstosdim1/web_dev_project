@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupStudentSearch('student-search', 'student-suggestions', 'student-am');
     setupStudentSearch('edit-student-search', 'edit-student-suggestions', 'edit-student-am');
     setupPublishForm();
+    
 
     //clear ola sto modal
     const thesisModal = document.getElementById('thesisModal');
@@ -421,7 +422,6 @@ function updateSteps(steps, completedIndex, activeIndex) {
         }
     });
 }
-
 
 function resetProgressModal() {
     const steps = document.querySelectorAll('.progress-timeline .step');
@@ -1478,155 +1478,132 @@ function getRequestStatusBadge(status) {
     return `<span class="badge ${badgeClass}">${badgeText}</span>`;
 }
 
-// *** GPT GRAPHS *** \\
-document.addEventListener("DOMContentLoaded", function() {
-    // Fetch and render statistics
-    loadStatisticsData();
 
-    function loadStatisticsData() {
-        fetch('../api/get_statistics.php') // Replace with your API endpoint
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    createYearlyChart(data.yearlyDistribution);
-                    createRequestsChart(data.requestsAccepted, data.requestsRejected);
-                    createResponseTimeChart(data.responseTimes);
-                    createGradesChart(data.gradesAbove9, data.gradesBelow9);
-                } else {
-                    console.error('Failed to fetch statistics data:', data.message);
-                }
-            })
-            .catch(err => console.error('Error fetching statistics data:', err));
+// *** STATISTICS *** \\
+let charts = {};
+
+function loadStatistics() {
+    fetch('../api/get_statistics.php')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Αποτυχία σύνδεσης με τον server.');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            if (!data.success) {
+                throw new Error(data.message || 'Αποτυχία φόρτωσης στατιστικών.');
+            }
+
+            const labels = ['Ως Επιβλέπων', 'Ως Μέλος Επιτροπής'];
+
+            createPieChart(
+                'thesesPieChart',
+                labels,
+                [data.supervisor.total_theses || 0, data.committee_member.total_theses || 0]
+            );
+
+            createChart(
+                'avgGradeChart',
+                labels,
+                [data.supervisor.avg_grade || 0, data.committee_member.avg_grade || 0],
+                'Μέσος Βαθμός'
+            );
+
+            createChart(
+                'avgCompletionTimeChart',
+                labels,
+                [data.supervisor.avg_completion_time || 0, data.committee_member.avg_completion_time || 0],
+                'Μέσος Χρόνος Ολοκλήρωσης (Ημέρες)'
+            );
+        })
+        .catch((error) => {
+            console.error('Σφάλμα στη φόρτωση στατιστικών:', error);
+            showNotification('Αποτυχία φόρτωσης στατιστικών.', 'error');
+        });
+}
+
+//kshlwnei to prohgoumeno graph an uparxei
+function destroyExistingChart(canvasId) {
+    if (charts[canvasId]) {
+        charts[canvasId].destroy();
     }
+}
 
-    function createYearlyChart(yearlyData) {
-        new Chart(document.getElementById('yearlyChart'), {
-            type: 'bar',
-            data: {
-                labels: yearlyData.years,
-                datasets: [{
-                    label: 'Διπλωματικές',
-                    data: yearlyData.counts,
-                    backgroundColor: '#007bff',
-                    borderRadius: 5
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        enabled: true
-                    }
+function createChart(canvasId, labels, data, title) {
+    destroyExistingChart(canvasId); //ksilwma to prohgoumeno graph an uparxei
+
+    const ctx = document.getElementById(canvasId).getContext('2d');
+    charts[canvasId] = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: title,
+                data: data,
+                backgroundColor: ['#4caf50', '#2196f3'],
+                borderColor: ['#388e3c', '#1976d2'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: false
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Έτος'
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `${context.dataset.label}: ${context.raw}`;
                         }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Αριθμός Διπλωματικών'
-                        },
-                        beginAtZero: true
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 0.5
                     }
                 }
             }
-        });
-    }
+        }
+    });
+}
 
-    function createRequestsChart(accepted, rejected) {
-        new Chart(document.getElementById('requestsChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Αποδεκτά', 'Απορριφθέντα'],
-                datasets: [{
-                    data: [accepted, rejected],
-                    backgroundColor: ['#28a745', '#dc3545']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    tooltip: {
-                        enabled: true
-                    }
-                }
-            }
-        });
-    }
+function createPieChart(canvasId, labels, data) {
+    destroyExistingChart(canvasId); //ksilwma to prohgoumeno graph an uparxei
 
-    function createResponseTimeChart(responseTimes) {
-        new Chart(document.getElementById('responseTimeChart'), {
-            type: 'line',
-            data: {
-                labels: responseTimes.dates,
-                datasets: [{
-                    label: 'Μέσος Χρόνος Αντίδρασης (σε ημέρες)',
-                    data: responseTimes.times,
-                    borderColor: '#ffc107',
-                    tension: 0.4,
-                    fill: false
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true
-                    },
-                    tooltip: {
-                        enabled: true
-                    }
+    const ctx = document.getElementById(canvasId).getContext('2d');
+    charts[canvasId] = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#4caf50', '#2196f3']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Ημερομηνία'
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            let total = data.reduce((sum, val) => sum + val, 0);
+                            let percentage = ((context.raw / total) * 100).toFixed(2);
+                            return `${context.label}: ${context.raw} (${percentage}%)`;
                         }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Χρόνος Αντίδρασης (Ημέρες)'
-                        },
-                        beginAtZero: true
                     }
                 }
             }
-        });
-    }
-
-    function createGradesChart(above9, below9) {
-        new Chart(document.getElementById('gradesChart'), {
-            type: 'pie',
-            data: {
-                labels: ['Άνω του 9', 'Κάτω από 9'],
-                datasets: [{
-                    data: [above9, below9],
-                    backgroundColor: ['#17a2b8', '#6c757d']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top'
-                    },
-                    tooltip: {
-                        enabled: true
-                    }
-                }
-            }
-        });
-    }
-});
+        }
+    });
+}

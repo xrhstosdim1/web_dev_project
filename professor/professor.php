@@ -543,50 +543,45 @@ include "../log-in-system/user_auth.php";
 					</div>
 				</div>
 			</div>
+
+
 			<!-- // *** Στατιστικά *** \\ -->
-			<div id="statistics" class="section-container">
-				<h2 class="mb-4 text-primary text-center">Στατιστικά</h2>
+			<div id="statistics" class="section-container py-5">
 				<div class="container">
-					<!-- Row 1 -->
-					<div class="row g-4">
-						<div class="col-md-6">
-							<div class="stat-section">
-								<h3>Ετήσια Κατανομή Διπλωματικών</h3>
-								<div class="chart-container">
-									<canvas id="yearlyChart"></canvas>
+					<h2 class="mb-4 text-primary text-center">Στατιστικά</h2>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<h5 class="card-title text-center">Μέσος Τελικός Βαθμός</h5>
+									<canvas id="avgGradeChart"></canvas>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="stat-section">
-								<h3>Αιτήματα: Αποδεκτά vs Απορριφθέντα</h3>
-								<div class="chart-container">
-									<canvas id="requestsChart"></canvas>
+						<div class="col-lg-6 col-md-6 mb-4">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<h5 class="card-title text-center">Μέσος Χρόνος Ολοκλήρωσης</h5>
+									<canvas id="avgCompletionTimeChart"></canvas>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- Row 2 -->
-					<div class="row g-4 mt-4">
-						<div class="col-md-6">
-							<div class="stat-section">
-								<h3>Χρόνοι Αντίδρασης Αιτημάτων</h3>
-								<div class="chart-container">
-									<canvas id="responseTimeChart"></canvas>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="stat-section">
-								<h3>Ποσοστά Βαθμολογίας (Άνω του 9)</h3>
-								<div class="chart-container">
-									<canvas id="gradesChart"></canvas>
+						<div class="col-lg-6 col-md-8 mx-auto mb-4">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<h5 class="card-title text-center">Κατανομή Διπλωματικών</h5>
+									<canvas id="thesesPieChart"></canvas>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+
+
+
 		</div>
 
 		
@@ -598,6 +593,8 @@ include "../log-in-system/user_auth.php";
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="../globally_accessed/dark-mode/switch_script.js"></script>
 		<script src="professor.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 		<script src="../globally_accessed/show_name_on_navbar.js" defer></script>
 		<script src="../globally_accessed/notifications/notifications.js" defer></script>
 		
