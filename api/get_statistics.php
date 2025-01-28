@@ -57,7 +57,7 @@ try {
     $response['supervisor']['total_theses'] = $data['supervised_count'];
 
     //arithmos diplwmatikwn melos
-    $query = "SELECT COUNT(*) AS co_supervised_count FROM diplwmatiki_foitita WHERE prof2 = ? OR prof3 = ?";
+    $query = "SELECT COUNT(*) AS co_supervised_count FROM diplwmatiki_foitita WHERE (prof2 = ? OR prof3 = ?) AND status = 'energi'";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ss", $email, $email);
     $stmt->execute();
