@@ -243,7 +243,21 @@ label {
 }
 .step:first-child::before {
     content: none;
+}   
+
+.step.clickable {
+    cursor: pointer;
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+    font-weight: bold;
 }
+
+.step.clickable:hover {
+    background-color: rgba(0, 123, 255, 0.2);
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
 .progress-timeline .step.completed ~ .step::before {
     background-color: transparent;
 }

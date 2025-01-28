@@ -54,8 +54,6 @@
         INSERT INTO gramateia (aitwn_email, am_foititi, id_diplwmatikis, final_grade, nemertes_link, prof1, prof2, prof3, aithsh_gia)
         VALUES (email_f, am_foitita, diplwmatiki_id, _final_grade, nemerti_link, profof1, profof2, profof3, 'pros_egrisi_oloklirwmenh');
 
-        UPDATE vathmologio SET final_grade = _final_grade WHERE id_diplwmatikis = diplwmatiki_id;
-
     END;
     //
 
