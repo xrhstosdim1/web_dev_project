@@ -382,7 +382,7 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 			<div class="section-container" id="grading" style="display: none;">
 				<div class="container py-5">
 					<h2 class="text-center fw-bold text-primary mb-5">Βαθμολόγιο</h2>
-					<p class="text-center text-muted mb-4">Εδώ εμφανίζονται οι καταχωρημένοι βαθμοί για μια διπλωματική, ανεξάρτητα από το αν έχει εγκριθεί ή όχι. Η έκγριση / απόρριψη γίνεται στις αιτήσεις.</p>
+					<p class="text-center text-muted mb-4">Εδώ εμφανίζονται οι καταχωρημένοι βαθμοί για μια διπλωματική, ανεξάρτητα από το αν έχει εγκριθεί ή όχι. Η έγκριση / απόρριψη γίνεται στις αιτήσεις.</p>
 					
 					<!-- Search and Filter Section -->
 					<div class="row justify-content-center mb-5">
