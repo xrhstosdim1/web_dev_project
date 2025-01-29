@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (str_starts_with($email, 'st')) {
                 $_SESSION['role'] = 'student';
                 header("Location: ../student/student.php");
-            } elseif (str_starts_with($email, 'sec')) {
+            } elseif (str_starts_with($email, 'sec_')) {
                 $_SESSION['role'] = 'secretary';
                 header("Location: ../secretary/secretary.php");
             } else {
