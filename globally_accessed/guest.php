@@ -18,9 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../images/logo_vertical_cut_black.png" alt="Logo" width="20%" height="20%" class="d-inline-block align-text-center">
-            </a>
+                <img src="../images/logo_vertical_cut.png" alt="" width="7%" height=auto; class="navbar-brand" href="#">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
