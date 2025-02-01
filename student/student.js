@@ -603,7 +603,6 @@ function fetchAndDisplayThesisStatus() {
 						contentContainer.innerHTML = `
                                 <div class="card shadow-sm border-0 p-4">
                                     <div class="card-body">
-                                        <!-- Εικονίδιο και τίτλος -->
                                         <div class="text-center mb-4">
                                             <i class="fas fa-users fa-4x text-primary"></i>
                                             <h4 class="card-title text-primary fw-bold mt-3">Προς Ανάθεση</h4>
@@ -612,9 +611,7 @@ function fetchAndDisplayThesisStatus() {
                                             </p>
                                         </div>
                                         
-                                        <!-- Αναζήτηση και Πίνακας -->
                                         <div class="row g-4">
-                                            <!-- Αναζήτηση Καθηγητή -->
                                             <div class="col-12 mb-4">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
@@ -630,7 +627,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
 
-                                            <!-- Πίνακας Προσκλήσεων -->
                                             <div class="col-12">
                                                 <div class="card shadow-sm">
                                                     <div class="card-body">
@@ -707,9 +703,7 @@ function fetchAndDisplayThesisStatus() {
                                         <br>
                                         <br>
                                         <br>
-                                        <!-- Βήματα για τον φοιτητή -->
                                         <div class="steps-container">
-                                            <!-- Βήμα 1 -->
                                             <div class="step mb-4">
                                                 <h5 class="fw-bold mb-2"><span class="text-primary">1.</span> Ανάρτηση πρόχειρου κειμένου *</h5>
                                                 <p class="text-muted">
@@ -721,7 +715,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
                             
-                                            <!-- Βήμα 2 -->
                                             <div class="step mb-4">
                                                 <h5 class="fw-bold mb-2"><span class="text-primary">2.</span> Ανάρτηση συνδέσμων:</h5>
                                                 <p class="text-muted">
@@ -736,7 +729,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
                             
-                                            <!-- Βήμα 3 -->
                                             <div class="step">
 												<h5 class="fw-bold mb-2"><span class="text-primary">3.</span> Καταχώρηση στοιχείων εξέτασης *</h5>
 												<p class="text-muted">
@@ -766,7 +758,6 @@ function fetchAndDisplayThesisStatus() {
 						contentContainer.innerHTML = `
                                 <div class="card shadow-sm border-0 p-4">
                                     <div class="card-body">
-                                        <!-- Εικονίδιο και Τίτλος -->
                                         <div class="text-center mb-4">
                                             <i class="fas fa-clipboard-check fa-4x text-warning"></i>
                                             <h4 class="card-title text-warning fw-bold mt-3">Βαθμολόγηση σε Εξέλιξη</h4>
@@ -775,7 +766,6 @@ function fetchAndDisplayThesisStatus() {
                                             </p>
                                         </div>
                         
-                                        <!-- Ενότητες Βημάτων -->
                                         <div class="row g-4">
                                             <!-- Βήμα 1: Προβολή Πρακτικού -->
                                             <div class="col-md-12">
@@ -792,7 +782,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
                         
-                                            <!-- Βήμα 2: Καταχώρηση Συνδέσμου -->
                                             <div class="col-md-12">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
@@ -967,7 +956,6 @@ function fetchAndDisplayThesisStatus() {
 				contentContainer.innerHTML = `
                     <div class="card shadow-sm border-0 p-4">
                         <div class="card-body text-center">
-                            <!-- Εικονίδιο και Τίτλος -->
                             <div class="text-center mb-4">
                                 <i class="fas fa-exclamation-circle fa-5x text-warning"></i>
                             </div>
