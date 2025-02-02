@@ -12,7 +12,7 @@ try {
     $grades = $input['grades'] ?? null;
 
     if (!$thesisId || !$professorType || !$grades) {
-        throw new Exception('Λείπουν δεδομένα. Παρακαλώ ελέγξτε το αίτημα.');
+        throw new Exception('Λείπουν δεδομένα.');
     }
 
     $mapping = [

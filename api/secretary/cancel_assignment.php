@@ -23,7 +23,7 @@ try {
     if ($stmt->affected_rows > 0) {
         echo json_encode(['success' => true, 'message' => 'Η αίτηση αλλαγής φοιτητή καταχωρήθηκε επιτυχώς. Εκκρεμεί απάντηση στις αιτήσεις.']);
     } else {
-        throw new Exception('Η αίτηση αλλαγής δεν καταχωρήθηκε. Ενδέχεται να υπάρχουν προβλήματα με τα δεδομένα.');
+        throw new Exception('Den etrekse to insert_grammateia_pros_allagh');
     }
 
     $stmt->close();

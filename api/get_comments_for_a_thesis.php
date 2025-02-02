@@ -9,7 +9,7 @@ try {
     $diplomaId = isset($_GET['id_diplomatikis']) ? intval($_GET['id_diplomatikis']) : 0;
 
     if ($diplomaId === 0 || empty($email)) {
-        throw new Exception('Invalid diploma ID or email.');
+        throw new Exception('Invalid ID or email.');
     }
 
     $query = "

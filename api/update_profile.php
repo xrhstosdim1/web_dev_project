@@ -1,7 +1,7 @@
 <?php
 include ("../log-in-system/user_auth.php");
 include('../database/db_conf.php');
-//TODO: null input handling, logika provlima me to trim
+
 header('Content-Type: application/json; charset=utf-8');
 
 try {

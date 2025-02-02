@@ -10,7 +10,7 @@ try {
     $thesisId = $input['id'] ?? null;
 
     if (!$thesisId) {
-        throw new Exception('Λείπει το ID της διπλωματικής. Παρακαλώ ελέγξτε το αίτημα.');
+        throw new Exception('Λείπει το ID της διπλωματικής.');
     }
 
     $reason = 'kathigitis';
