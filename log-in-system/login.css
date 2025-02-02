@@ -50,7 +50,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px; /* Σταθερό πλάτος */
+    width: 45px; 
     background: #f8f9fa;
     border: 1px solid #ced4da;
     border-left: none;
@@ -73,8 +73,8 @@ body {
 
 .switch {
     position: absolute;
-    top: 2%; /* Αντί για 20px */
-    right: 2%; /* Αντί για 20px */
+    top: 2%; 
+    right: 2%; 
     align-items: center;
     margin-bottom: 2%;
 }
