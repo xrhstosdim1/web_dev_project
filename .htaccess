@@ -1,0 +1,47 @@
+<FilesMatch "\.(html|css|js|php|png|jpg|jpeg|gif|svg|woff2|ttf|eot|otf|json|xml)$">
+    Require all granted
+</FilesMatch>
+
+
+<IfModule mod_headers.c>
+    <FilesMatch ".*">
+        Header unset Cache-Control
+        Header unset Pragma
+        Header unset Expires
+    </FilesMatch>
+</IfModule>
+
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    <Files "globally_accessed/dark-mode/switch_script.js">
+        ExpiresByType application/javascript "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+
+    <Files "globally_accessed/dark-mode/switch-style.css">
+        ExpiresByType text/css "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+
+    <Files "student/pdfmake.min.js">
+        ExpiresByType application/javascript "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+
+    <Files "student/vfs_fonts.js">
+        ExpiresByType application/javascript "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+
+    <Files "globally_accessed/notifications/notifications.js">
+        ExpiresByType application/javascript "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+
+    <Files "globally_accessed/notifications/notifications.css">
+        ExpiresByType text/css "access plus 1 month"
+        Header always set Cache-Control "public, max-age=2592000, immutable"
+    </Files>
+</IfModule>
