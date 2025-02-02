@@ -858,7 +858,7 @@ function fetchAndDisplayThesisStatus() {
 																<strong>Τίτλος:</strong> <span id="thesis-title">-</span>
 															</li>
 															<li class="list-group-item">
-																<strong>Περίληψη:</strong> <span id="thesis-summary">-</span>
+																<strong>Περίληψη:</strong> <span id="thesis-summary_">-</span>
 															</li>
 															<li class="list-group-item">
 																<strong>Επιβλέπων:</strong> <span id="thesis-supervisor">-</span>
@@ -911,7 +911,7 @@ function fetchAndDisplayThesisStatus() {
 										const details = data.details;
 
 										document.getElementById("thesis-title").innerText = details.topic || "N/A";
-										document.getElementById("thesis-summary").innerText = details.summary || "N/A";
+										document.getElementById("thesis-summary_").innerText = details.summary || "N/A";
 										document.getElementById("thesis-supervisor").innerText = details.supervisor || "N/A";
 										
 										document.getElementById("topic-file-link").setAttribute("href", `../uploads/${thesis.proff_file || "-"}`);
