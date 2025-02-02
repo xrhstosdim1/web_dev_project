@@ -437,7 +437,7 @@ function updateProgressBar(status) {
 
 	statusProgress.className = `progress-bar stage-${Math.ceil(percentage / 25)}`;
 }
-// timer function //TODO:: na paei grammateia
+// timer function 
 function startAutoUpdatingCounter(startDate) {
 	function updateCounter() {
 		const now = new Date();
