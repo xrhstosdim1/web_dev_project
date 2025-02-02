@@ -53,10 +53,6 @@ function setupMenuNavigation() {
     }
 }
 
-
-
-
-// *** FILTRA *** \\
 //filtra gia aithseis
 function setupAithseisFilters() {
     const statusFilter = document.getElementById('my-filter-status');
@@ -92,8 +88,6 @@ function setupThesisFilter() {
 }
 
 
-
-// *** AITHSEIS *** \\
 //load and show oles tis aithseis, filtering here
 function loadRequests(filterStatus = 'pending', filterReason = 'all', currentPage = 1) {
     const tableBody = document.querySelector('#requests-table tbody');
@@ -852,7 +846,7 @@ function getApiStatusText(status) {
     };
     return statusMapping[status] || 'Άγνωστο getApiStatusText';
 }
-//de thumamai giati uparxei auto
+
 function getApiReasonText(reason) {
     const reasonMapping = {
         all: 'all',
@@ -862,6 +856,7 @@ function getApiReasonText(reason) {
     };
     return reasonMapping[reason] || 'Άγνωστο getApiReasonText';
 }
+
 //map gia emfanish aithshs apo api se html (aithseis table)
 function translateReason(reason) {
     const reasonMapping = {
@@ -983,7 +978,7 @@ function resetProgressModal() {
         step.style.backgroundColor = '';
     });
 }
-//sunarthsh gia na allazei to rdelo to status bar
+
 function updateSteps(steps, completedIndex, activeIndex) {
     steps.forEach((step, index) => {
         if (index <= completedIndex) {
