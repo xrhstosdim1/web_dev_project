@@ -470,7 +470,8 @@ function openGradingModal(thesisId) {
             document.getElementById('vathm-thesis-exam-date').innerText = vathm_details.exam_date || 'N/A';
             document.getElementById('vathm-thesis-grading-date').innerText = grades.date_requested || 'N/A';
             document.getElementById('vathm-thesis-completion-date').innerText = vathm_details.completion_date || 'N/A';
-           
+            document.getElementById('nhmerths').innerText = vathm_details.nemertes_link || 'Δεν έχει οριστεί.';
+
             document.getElementById('final_grade').innerText = grades.final_grade || 'N/A';
             document.getElementById('vathm-thesis-topic-header').innerText = vathm_details.topic || 'N/A';
 

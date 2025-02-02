@@ -509,6 +509,10 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 											<span id="vathm-thesis-file-name">N/A</span>
 										</a>
 									</p>
+									<p class="mb-1">
+										<strong>Σύνδεσμος αποθετηρίου:</strong>
+										<span id="nhmerths">N/A</span>
+									</p>
 								</div>
 								<h5 class="mt-4 mb-3">Βαθμολογία: <span class="mt-4 mb-3" id="final_grade">-</span></h5>
 								<div class="table-responsive">
