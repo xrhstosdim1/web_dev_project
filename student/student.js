@@ -774,9 +774,9 @@ function fetchAndDisplayThesisStatus() {
                                                         <p class="card-text text-muted">
                                                             Μπορείτε να δείτε το πρακτικό που δημιούργησε η τριμελής επιτροπή.
                                                         </p>
-                                                        <a href="#" id="evaluation-report-link" class="btn btn-success btn-sm mt-2" target="_blank">
-                                                            <i class="fas fa-file-alt"></i> Προβολή Πρακτικού
-                                                        </a>
+															<a href="#" id="exam-report-button" class="list-group-item list-group-item-action text-success">
+																<i class="fas fa-file-alt me-2"></i> Προβολή Πρακτικού Εξέτασης
+															</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -804,6 +804,39 @@ function fetchAndDisplayThesisStatus() {
                                     </div>
                                 </div>
                             `;
+							document.getElementById("exam-report-button").addEventListener("click", async function (e) {
+								e.preventDefault();
+
+								fetch(`../api/get_data_praktiko.php?id=${id_dipl}`)
+									.then(response => response.json())
+									.then(praktiko => {
+										if (!praktiko.success) {
+											showNotification("Πρόβλημα κατά τη δημιουργία του PDF.", "error");
+											return;
+										}
+
+										const content = generatePDFContent(praktiko.details);
+
+										const element = document.createElement("div");
+										element.innerHTML = content;
+
+										const options = {
+											margin: 1,
+											filename: `praktiko_eksetasis_${id_dipl}.pdf`,
+											image: { type: 'jpeg', quality: 0.98 },
+											html2canvas: { scale: 2 },
+											jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' },
+										};
+
+										html2pdf().set(options).from(element).save();
+									})
+									.catch(error => {
+										console.error(error);
+										showNotification("Πρόβλημα κατά τη δημιουργία του PDF.", "error");
+									});
+								});
+
+
 						break;
 					case 'oloklirwmeni':
 							contentContainer.innerHTML = `
