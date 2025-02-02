@@ -1180,7 +1180,7 @@ function setupAnnouncementForm(thesisId) {
 // *** REQUEST HANDLING *** \\
 // load ta requests tou kathigiti
 function loadProfessorRequests(currentPage = 1) {
-    // Fetch and display professor requests with pagination
+    // Fetch and display professor requests me pagination
     const requestsPerPage = 7;
 
     fetch('../api/get_my_requests.php')
@@ -1355,11 +1355,11 @@ function setupPublishForm() {
 }
 
 // *** EXPORT FUNCTIONS *** \\
-// Handles main export button click (default CSV export)
+// Handle main export button click (default CSV export)
 function handleExport() {
     tbtojson();
 }
-// Handles dropdown menu option selection for export format
+// Handle dropdown menu option selection for export format
 function handleExportFormatChange(format) {
     if (format === 'CSV') {
         tbtocsv();

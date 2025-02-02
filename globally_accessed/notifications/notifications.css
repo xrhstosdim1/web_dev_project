@@ -1,4 +1,4 @@
-/* Notification Container */
+
 .notification-container {
     position: fixed;
     bottom: 20px;
@@ -7,7 +7,6 @@
     z-index: 1000;
 }
 
-/* Notification Box */
 .notification {
     padding: 20px;
     margin-bottom: 15px;
@@ -22,25 +21,21 @@
     animation: fadeIn 0.5s forwards, fadeOut 0.5s 4.5s forwards;
 }
 
-/* Error Notification */
 .notification.error {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
     color: white;
 }
 
-/* Success Notification */
 .notification.success {
-    background-color: #4caf50; /* Green */
+    background-color: #4caf50; 
     color: white;
 }
 
-/* Info Notification */
 .notification.info {
-    background-color: #2196f3; /* Blue */
+    background-color: #2196f3; 
     color: white;
 }
 
-/* Icon Styles */
 .notification i {
     margin-right: 15px;
     font-size: 20px;
@@ -50,7 +45,7 @@
     flex: 1;
 }
 
-/* Central Notification */
+
 .central-notification {
     position: fixed;
     top: 50%;
@@ -66,7 +61,7 @@
     animation: fadeIn 0.5s forwards;
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -78,7 +73,7 @@
     }
 }
 
-/* Fade-out animation */
+
 @keyframes fadeOut {
     from {
         opacity: 1;
