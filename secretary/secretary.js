@@ -653,7 +653,7 @@ function openThesisModal(thesisId) {
             const exam = examData.announcements && examData.announcements[0] ? examData.announcements[0] : {};
             const StudentfileName = examData.file_name || '';
             const thesisStudentFileLinkElement = document.getElementById('student-thesis-file-name');
-
+            const timeSinceAssignment = document.getElementById('time-since-assignment');
             
             document.getElementById('thesis-topic-header').innerText = details.topic || 'N/A';
             document.getElementById('thesis-summary').innerText = details.summary || 'N/A';
@@ -674,6 +674,19 @@ function openThesisModal(thesisId) {
             document.getElementById('_exam-date').innerText = exam.exam_date || 'N/A';
             document.getElementById('_exam-location').innerText = exam._location || 'N/A';
     
+            console.log(details.raw_start_date); //debugggg 
+            if(details.status != 'pros_anathesi' || details.status != 'diathesimi' || details.status != 'pros_egrisi'){
+                if (details.raw_start_date) {
+                    const startDate = new Date(details.raw_start_date.replace(' ', 'T'));
+                    startAutoUpdatingCounter(startDate);
+                } else {
+                    timeSinceAssignment.textContent = 'Η ανάθεση δεν έχει εγκριθεί.';
+                }
+            } else {
+                timeSinceAssignment.textContent = '-';
+            }
+
+
             //arxeio foithth
             if (thesisStudentFileLinkElement) {
                 if (StudentfileName && StudentfileName !== 'N/A') {
@@ -805,7 +818,28 @@ function openThesisModal(thesisId) {
             showNotification('Σφάλμα κατά τη φόρτωση λεπτομερειών.', 'error');
         });
 }
+//timer function apo anathesh, opws ston foithth
+function startAutoUpdatingCounter(startDate) {
+	function updateCounter() {
+		const now = new Date();
+		const timeDiff = now - startDate;
 
+		if (timeDiff > 0) {
+			const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+			const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+			const seconds = Math.floor((timeDiff / 1000) % 60);
+
+			document.getElementById('time-since-assignment').textContent =
+				`${days} μέρες, ${hours} ώρες, ${minutes} λεπτά, ${seconds} δευτερόλεπτα`;
+		} else {
+			document.getElementById('time-since-assignment').textContent = 'Η ανάθεση δεν έχει εγκριθεί.';
+		}
+	}
+
+	updateCounter();
+	setInterval(updateCounter, 1000);
+}
 // *** MAPPING *** \\
 //map gia filtra aithsewn apo html se api
 function getApiStatusText(status) {

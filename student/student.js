@@ -377,7 +377,6 @@ function fetchThesisData() {
 				document.getElementById('thesis-topic').textContent = thesis.topic || 'Δεν υπάρχει θέμα';
 				document.getElementById('thesis-summary').textContent = thesis.summary || 'Δεν υπάρχει περιγραφή';
 
-				console.log(thesis.proff_file);
 
 				const fileLink = document.getElementById('my-thesis-file-link');
 				fileLink.innerHTML = thesis.proff_file ?

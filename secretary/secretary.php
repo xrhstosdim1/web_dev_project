@@ -348,7 +348,10 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									<strong>Συνημμένο Αρχείο:</strong>
 									<span id="thesis-file-name"></span>
 								</p>
-
+								<p class="mb-1">
+									<strong>Χρόνος από την ανάθεση:</strong>
+									<span id="time-since-assignment">-</span>
+								</p>
 							</div>
 
 							<div id="exam-details" class="sector mb-4">
