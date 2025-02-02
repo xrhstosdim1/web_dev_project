@@ -348,7 +348,10 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 									<strong>Συνημμένο Αρχείο:</strong>
 									<span id="thesis-file-name"></span>
 								</p>
-
+								<p class="mb-1">
+									<strong>Χρόνος από την ανάθεση:</strong>
+									<span id="time-since-assignment">-</span>
+								</p>
 							</div>
 
 							<div id="exam-details" class="sector mb-4">
@@ -505,6 +508,10 @@ include "../log-in-system/user_auth.php";// Check if user is logged in and if th
 										<a href="#" id="vathm-thesis-file-link" target="_blank" class="text-decoration-none text-primary">
 											<span id="vathm-thesis-file-name">N/A</span>
 										</a>
+									</p>
+									<p class="mb-1">
+										<strong>Σύνδεσμος αποθετηρίου:</strong>
+										<span id="nhmerths">N/A</span>
 									</p>
 								</div>
 								<h5 class="mt-4 mb-3">Βαθμολογία: <span class="mt-4 mb-3" id="final_grade">-</span></h5>

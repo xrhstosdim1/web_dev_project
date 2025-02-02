@@ -96,7 +96,7 @@ try {
         FROM 
             vathmologio
         WHERE 
-            id_diplwmatikis = ? AND status = 'egkekrimeni'
+            id_diplwmatikis = ? AND (status = 'egkekrimeni' OR status = 'anamoni_gia_egkrisi')
     ";
 
     $stmt = $conn->prepare($gradesQuery);

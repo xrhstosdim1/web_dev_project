@@ -9,7 +9,7 @@ $email = $_SESSION['email'];
 if (!$email) {
     echo json_encode([
         'success' => false,
-        'message' => 'Παρακαλώ παρέχετε το email του καθηγητή.'
+        'message' => 'No prof email found.'
     ]);
     exit;
 }

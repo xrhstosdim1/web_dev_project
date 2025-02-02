@@ -377,7 +377,6 @@ function fetchThesisData() {
 				document.getElementById('thesis-topic').textContent = thesis.topic || 'Δεν υπάρχει θέμα';
 				document.getElementById('thesis-summary').textContent = thesis.summary || 'Δεν υπάρχει περιγραφή';
 
-				console.log(thesis.proff_file);
 
 				const fileLink = document.getElementById('my-thesis-file-link');
 				fileLink.innerHTML = thesis.proff_file ?
@@ -603,7 +602,6 @@ function fetchAndDisplayThesisStatus() {
 						contentContainer.innerHTML = `
                                 <div class="card shadow-sm border-0 p-4">
                                     <div class="card-body">
-                                        <!-- Εικονίδιο και τίτλος -->
                                         <div class="text-center mb-4">
                                             <i class="fas fa-users fa-4x text-primary"></i>
                                             <h4 class="card-title text-primary fw-bold mt-3">Προς Ανάθεση</h4>
@@ -612,9 +610,7 @@ function fetchAndDisplayThesisStatus() {
                                             </p>
                                         </div>
                                         
-                                        <!-- Αναζήτηση και Πίνακας -->
                                         <div class="row g-4">
-                                            <!-- Αναζήτηση Καθηγητή -->
                                             <div class="col-12 mb-4">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
@@ -630,7 +626,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
 
-                                            <!-- Πίνακας Προσκλήσεων -->
                                             <div class="col-12">
                                                 <div class="card shadow-sm">
                                                     <div class="card-body">
@@ -707,9 +702,7 @@ function fetchAndDisplayThesisStatus() {
                                         <br>
                                         <br>
                                         <br>
-                                        <!-- Βήματα για τον φοιτητή -->
                                         <div class="steps-container">
-                                            <!-- Βήμα 1 -->
                                             <div class="step mb-4">
                                                 <h5 class="fw-bold mb-2"><span class="text-primary">1.</span> Ανάρτηση πρόχειρου κειμένου *</h5>
                                                 <p class="text-muted">
@@ -721,7 +714,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
                             
-                                            <!-- Βήμα 2 -->
                                             <div class="step mb-4">
                                                 <h5 class="fw-bold mb-2"><span class="text-primary">2.</span> Ανάρτηση συνδέσμων:</h5>
                                                 <p class="text-muted">
@@ -736,7 +728,6 @@ function fetchAndDisplayThesisStatus() {
                                                 </div>
                                             </div>
                             
-                                            <!-- Βήμα 3 -->
                                             <div class="step">
 												<h5 class="fw-bold mb-2"><span class="text-primary">3.</span> Καταχώρηση στοιχείων εξέτασης *</h5>
 												<p class="text-muted">
@@ -766,7 +757,6 @@ function fetchAndDisplayThesisStatus() {
 						contentContainer.innerHTML = `
                                 <div class="card shadow-sm border-0 p-4">
                                     <div class="card-body">
-                                        <!-- Εικονίδιο και Τίτλος -->
                                         <div class="text-center mb-4">
                                             <i class="fas fa-clipboard-check fa-4x text-warning"></i>
                                             <h4 class="card-title text-warning fw-bold mt-3">Βαθμολόγηση σε Εξέλιξη</h4>
@@ -775,24 +765,21 @@ function fetchAndDisplayThesisStatus() {
                                             </p>
                                         </div>
                         
-                                        <!-- Ενότητες Βημάτων -->
                                         <div class="row g-4">
-                                            <!-- Βήμα 1: Προβολή Πρακτικού -->
                                             <div class="col-md-12">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">1. Δείτε το πρακτικό βαθμολόγησης</h5>
                                                         <p class="card-text text-muted">
-                                                            Μπορείτε να δείτε το πρακτικό που δημιούργησε η τριμελής επιτροπή.
+                                                            Μπορείτε να δείτε το πρακτικό που δημιουργεί η τριμελής επιτροπή. Δεν είναι το τελικό.
                                                         </p>
-                                                        <a href="#" id="evaluation-report-link" class="btn btn-success btn-sm mt-2" target="_blank">
-                                                            <i class="fas fa-file-alt"></i> Προβολή Πρακτικού
-                                                        </a>
+															<a href="#" id="exam-report-button" class="list-group-item list-group-item-action text-success">
+																<i class="fas fa-file-alt me-2"></i> Προβολή Πρακτικού Εξέτασης
+															</a>
                                                     </div>
                                                 </div>
                                             </div>
                         
-                                            <!-- Βήμα 2: Καταχώρηση Συνδέσμου -->
                                             <div class="col-md-12">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
@@ -816,6 +803,39 @@ function fetchAndDisplayThesisStatus() {
                                     </div>
                                 </div>
                             `;
+							document.getElementById("exam-report-button").addEventListener("click", async function (e) {
+								e.preventDefault();
+
+								fetch(`../api/get_data_praktiko.php?id=${id_dipl}`)
+									.then(response => response.json())
+									.then(praktiko => {
+										if (!praktiko.success) {
+											showNotification("Πρόβλημα κατά τη δημιουργία του PDF.", "error");
+											return;
+										}
+
+										const content = generatePDFContent(praktiko.details);
+
+										const element = document.createElement("div");
+										element.innerHTML = content;
+
+										const options = {
+											margin: 1,
+											filename: `praktiko_eksetasis_${id_dipl}.pdf`,
+											image: { type: 'jpeg', quality: 0.98 },
+											html2canvas: { scale: 2 },
+											jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' },
+										};
+
+										html2pdf().set(options).from(element).save();
+									})
+									.catch(error => {
+										console.error(error);
+										showNotification("Πρόβλημα κατά τη δημιουργία του PDF.", "error");
+									});
+								});
+
+
 						break;
 					case 'oloklirwmeni':
 							contentContainer.innerHTML = `
@@ -838,7 +858,7 @@ function fetchAndDisplayThesisStatus() {
 																<strong>Τίτλος:</strong> <span id="thesis-title">-</span>
 															</li>
 															<li class="list-group-item">
-																<strong>Περίληψη:</strong> <span id="thesis-summary">-</span>
+																<strong>Περίληψη:</strong> <span id="thesis-summary_">-</span>
 															</li>
 															<li class="list-group-item">
 																<strong>Επιβλέπων:</strong> <span id="thesis-supervisor">-</span>
@@ -891,7 +911,7 @@ function fetchAndDisplayThesisStatus() {
 										const details = data.details;
 
 										document.getElementById("thesis-title").innerText = details.topic || "N/A";
-										document.getElementById("thesis-summary").innerText = details.summary || "N/A";
+										document.getElementById("thesis-summary_").innerText = details.summary || "N/A";
 										document.getElementById("thesis-supervisor").innerText = details.supervisor || "N/A";
 										
 										document.getElementById("topic-file-link").setAttribute("href", `../uploads/${thesis.proff_file || "-"}`);
@@ -967,7 +987,6 @@ function fetchAndDisplayThesisStatus() {
 				contentContainer.innerHTML = `
                     <div class="card shadow-sm border-0 p-4">
                         <div class="card-body text-center">
-                            <!-- Εικονίδιο και Τίτλος -->
                             <div class="text-center mb-4">
                                 <i class="fas fa-exclamation-circle fa-5x text-warning"></i>
                             </div>
