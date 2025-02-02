@@ -766,13 +766,12 @@ function fetchAndDisplayThesisStatus() {
                                         </div>
                         
                                         <div class="row g-4">
-                                            <!-- Βήμα 1: Προβολή Πρακτικού -->
                                             <div class="col-md-12">
                                                 <div class="card  shadow-sm">
                                                     <div class="card-body">
                                                         <h5 class="fw-bold mb-3">1. Δείτε το πρακτικό βαθμολόγησης</h5>
                                                         <p class="card-text text-muted">
-                                                            Μπορείτε να δείτε το πρακτικό που δημιούργησε η τριμελής επιτροπή.
+                                                            Μπορείτε να δείτε το πρακτικό που δημιουργεί η τριμελής επιτροπή. Δεν είναι το τελικό.
                                                         </p>
 															<a href="#" id="exam-report-button" class="list-group-item list-group-item-action text-success">
 																<i class="fas fa-file-alt me-2"></i> Προβολή Πρακτικού Εξέτασης
