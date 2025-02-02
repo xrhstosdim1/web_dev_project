@@ -1,4 +1,4 @@
-/* General Styles */
+
 .custom-navbar {
     background-color: #8da8c7;
 }
@@ -15,7 +15,6 @@
     display: block;
 }
 
-/* Table Styles */
 .table thead th {
     font-weight: bold;
     text-transform: uppercase;
@@ -25,14 +24,13 @@
     background-color: #f8f9fa;
 }
 
-/* Card Styles */
 .card {
     border-radius: 10px;
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Pagination */
+
 .pagination .page-link {
     color: #007bff;
 }
@@ -42,7 +40,7 @@
     color: #fff;
 }
 
-/* Form Elements */
+
 .form-select {
     border-radius: 6px;
     border: 1px solid #ced4da;
@@ -51,17 +49,17 @@ label {
     font-size: 0.9rem;
 }
 
-/* Backgrounds */
+
 .bg-light {
     border-radius: 8px;
 }
 
-/* Button Styles */
+
 .btn-primary {
     border-radius: 6px;
 }
 
-/* Dropdowns */
+
 .navbar-nav .dropdown-menu {
     opacity: 0;
     visibility: hidden;
@@ -84,7 +82,7 @@ label {
     background-color: rgba(0, 123, 255, 0.1);
 }
 
-/* Utility Classes */
+
 .gap-3 {
     gap: 1rem !important;
 }
@@ -92,7 +90,7 @@ label {
     min-width: auto;
 }
 
-/* Suggestions List */
+
 #student-suggestions,
 #edit-student-suggestions {
     position: absolute;
@@ -115,7 +113,7 @@ label {
     background-color: #f1f1f1;
 }
 
-/* Modal Styling */
+
 .modal-dialog {
     max-width: 900px;
 }
@@ -141,7 +139,6 @@ label {
     border-top: none;
 }
 
-/* Section Styling */
 .sector {
     padding: 1rem 1.5rem;
     border-radius: 10px;
@@ -157,7 +154,7 @@ label {
     margin-right: 0.4rem;
 }
 
-/* Comments and Requests */
+
 .request-item,
 .comment-item {
     padding: 0.6rem;
@@ -173,14 +170,14 @@ label {
     max-width: 100%;
 }
 
-/* Badge Styling */
+
 .badge {
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
     margin-left: auto;
 }
 
-/* Progress Timeline */
+
 .progress-timeline {
     display: flex;
     justify-content: space-between;
@@ -262,22 +259,11 @@ label {
     background-color: transparent;
 }
 
-/* Additional Classes */
+
 #announce-exam-btn {
     float: right;
     margin-top: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -311,7 +297,7 @@ label {
         height: auto !important;
     }
     
-    /* Pie Chart styling για καλύτερη ισορροπία */
+
     #thesesPieChart {
         max-width: 80%;
         margin: 0 auto;
